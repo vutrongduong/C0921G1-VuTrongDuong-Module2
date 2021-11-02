@@ -1,5 +1,7 @@
 package ss3_mang_va_phuong_thuc_trong_java.bai_tap;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThemPhanTuVaoMang {
@@ -13,6 +15,7 @@ public class ThemPhanTuVaoMang {
         if (index<=-1&&index>=arr.length-1){
             System.out.println("không chèn được phần từ vào mảng");
         }
+        arr = Arrays.copyOf(arr,arr.length+1);
         for (int i=arr.length-1;i>=index;i--){
             arr[i]=arr[i-1];
         }
