@@ -1,8 +1,8 @@
 package ss6_ke_thua.bai_tap.lop_point_va_moveablepoint;
 
 public class Point {
-    protected float x = 0.0f;
-    protected float y = 0.0f;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
     public Point(float x, float y) {
         this.x = x;
@@ -39,6 +39,6 @@ public class Point {
     }
 
     public String toString() {
-        return "(x=" + x + ", y=" + y+")";
+        return "(x=" + x + ", y=" + y + ")";
     }
 }

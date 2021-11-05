@@ -1,8 +1,8 @@
 package ss6_ke_thua.bai_tap.lop_point_va_moveablepoint;
 
 public class MovablePoint extends Point {
-    protected float xSpeed = 0.0f;
-    protected float ySpeed = 0.0f;
+    private float xSpeed = 0.0f;
+    private float ySpeed = 0.0f;
 
     public MovablePoint(float x, float y, float xSpeed, float ySpeed) {
         super(x, y);
@@ -10,10 +10,6 @@ public class MovablePoint extends Point {
         this.ySpeed = ySpeed;
     }
 
-    public MovablePoint(float xSpeed, float ySpeed) {
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
-    }
 
     public MovablePoint() {
     }
@@ -49,9 +45,10 @@ public class MovablePoint extends Point {
         return super.toString() +
                 ", speed=(" + this.xSpeed + "," + this.ySpeed + ")";
     }
-    public MovablePoint move(){
-       x+=xSpeed;
-       y+=ySpeed;
-       return this;
+
+    public MovablePoint move() {
+        setX(getX() + getxSpeed());
+        setY(getY() + getySpeed());
+        return this;
     }
 }
