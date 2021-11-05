@@ -10,5 +10,8 @@ public class SquareTest {
 
         square = new Square(5.8, "yellow", true);
         System.out.println(square);
+//        square.resize(10);
+//        System.out.println(square.getSide());
+        System.out.println(square.getArea());
     }
 }

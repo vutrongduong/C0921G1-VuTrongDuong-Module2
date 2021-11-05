@@ -1,8 +1,8 @@
-package ss7_abstract_class_va_interface.thuc_hanh.trien_khai_interface_comparable_cho_cac_lop_hinh_hoc;
+package ss7_abstract_class_va_interface.thuc_hanh.comparable;
 
-public class ComparableCircle extends Circle
-        implements Comparable<ComparableCircle> {
+import ss6_ke_thua.thuc_hanh.he_cac_doi_tuong_hinh_hoc.Circle;
 
+public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
     public ComparableCircle() {
     }
 
@@ -21,4 +21,3 @@ public class ComparableCircle extends Circle
         else return 1;
     }
 }
-

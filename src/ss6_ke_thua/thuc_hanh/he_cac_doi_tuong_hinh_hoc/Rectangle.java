@@ -1,8 +1,10 @@
 package ss6_ke_thua.thuc_hanh.he_cac_doi_tuong_hinh_hoc;
 
-public class Rectangle extends Shape{
-    private double width = 1.0;
-    private double length = 1.0;
+import ss7_abstract_class_va_interface.bai_tap.trien_khai_interface_resizeable_cho_cac_lop_hinh_hoc.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
+    private double width = 2.0;
+    private double length = 2.0;
 
     public Rectangle() {
     }
@@ -39,7 +41,7 @@ public class Rectangle extends Shape{
     }
 
     public double getPerimeter() {
-        return 2 * (width + this.length);
+        return 2 * (this.width + this.length);
     }
 
     @Override
@@ -50,5 +52,9 @@ public class Rectangle extends Shape{
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+    @Override
+    public void resize(double percent) {
+        setWidth(getWidth()+getWidth()*percent/100);
     }
 }
