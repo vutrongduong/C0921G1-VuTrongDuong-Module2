@@ -141,22 +141,18 @@ public class MyLinkedList<E> {
         return -1;
     }
 
-
     public E getFirst() {
-        Node temp=head;
-       Object data=head;
-       return (E) temp.data;
+        return (E) head.data;
     }
 
-    public E getLast() {
-        Node temp = head;
-        Object data;
-        for (int i = 0; i < size(); i++) {
-            temp = temp.next;
-        }
-        data = temp.data;
-        return (E) data;
-    }
+//    public E getLast() {
+//        Node temp = head;
+//        Object data;
+//        for (int i = 0; i < size(); i++) {
+//            temp = temp.next;
+//        }
+//
+//    }
 
     public void clear() {
         Node temp = head;
@@ -170,4 +166,6 @@ public class MyLinkedList<E> {
     public int getSize() {
         return numNodes;
     }
+
+
 }
