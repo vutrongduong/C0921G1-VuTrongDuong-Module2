@@ -40,6 +40,10 @@ public class Shape implements Resizeable {
 
     @Override
     public void resize(double percent) {
+    }
 
+    public int getArea() {
+        return 0;
     }
 }
+

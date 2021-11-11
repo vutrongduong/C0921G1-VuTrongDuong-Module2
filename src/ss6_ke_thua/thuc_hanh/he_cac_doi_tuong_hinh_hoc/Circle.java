@@ -25,8 +25,9 @@ public class Circle extends Shape implements Resizeable {
         this.radius = radius;
     }
 
-    public double getArea() {
-        return radius * radius * Math.PI;
+    @Override
+    public int getArea() {
+        return (int)(radius * radius * Math.PI);
     }
 
     public double getPerimeter() {

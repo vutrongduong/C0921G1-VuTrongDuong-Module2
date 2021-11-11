@@ -17,21 +17,21 @@ public class Test {
         ) {
             if (a instanceof Circle) {
                 Circle circle = (Circle) a;
-                System.out.println("Diện tích trước khi tăng "+circle.getArea());
-                circle.resize(Math.random()*99+1);
-                System.out.println("Diện tích sau khi tăng "+circle.getArea());
+                System.out.println("Diện tích trước khi tăng " + circle.getArea());
+                circle.resize(Math.random() * 99 + 1);
+                System.out.println("Diện tích sau khi tăng " + circle.getArea());
                 System.out.println("-------------------------------------");
             } else if (a instanceof Rectangle) {
                 Rectangle rectangle = (Rectangle) a;
-                System.out.println("Diện tích trước khi tăng "+rectangle.getArea());
-                rectangle.resize(Math.random()*99+1);
-                System.out.println("Diện tích sau khi tăng "+rectangle.getArea());
+                System.out.println("Diện tích trước khi tăng " + rectangle.getArea());
+                rectangle.resize(Math.random() * 99 + 1);
+                System.out.println("Diện tích sau khi tăng " + rectangle.getArea());
                 System.out.println("-------------------------------------");
-            } else{
-                Square square =(Square) a;
-                System.out.println("Diện tích trước khi tăng "+square.getArea());
-                square.resize(Math.random()*99+1);
-                System.out.println("Diện tích sau khi tăng "+square.getArea());
+            } else {
+                Square square = (Square) a;
+                System.out.println("Diện tích trước khi tăng " + square.getArea());
+                square.resize(Math.random() * 99 + 1);
+                System.out.println("Diện tích sau khi tăng " + square.getArea());
                 System.out.println("-------------------------------------");
             }
         }

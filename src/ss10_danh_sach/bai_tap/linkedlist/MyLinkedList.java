@@ -1,7 +1,5 @@
 package ss10_danh_sach.bai_tap.linkedlist;
 
-import java.util.LinkedList;
-
 public class MyLinkedList<E> {
     private class Node {
         private Node next;
@@ -145,14 +143,13 @@ public class MyLinkedList<E> {
         return (E) head.data;
     }
 
-//    public E getLast() {
-//        Node temp = head;
-//        Object data;
-//        for (int i = 0; i < size(); i++) {
-//            temp = temp.next;
-//        }
-//
-//    }
+    public E getLast() {
+        Node temp = head;
+        for (int i = 0; i < size() - 1; i++) {
+            temp = temp.next;
+        }
+        return (E) temp.data;
+    }
 
     public void clear() {
         Node temp = head;
@@ -166,6 +163,4 @@ public class MyLinkedList<E> {
     public int getSize() {
         return numNodes;
     }
-
-
 }
