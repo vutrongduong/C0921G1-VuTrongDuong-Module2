@@ -34,14 +34,12 @@ public class OToService implements IPhuongTien {
         System.out.println("Kiểu xe: ");
         String kieuXe = scanner.nextLine();
         oToList.add(new OTo(bienKiemSoat, tenHang, namSanXuat, chuSoHuu, soChoNgoi, kieuXe));
-
     }
 
     @Override
     public void display() {
         for (OTo oto : oToList) {
             System.out.println(oto);
-
         }
     }
 

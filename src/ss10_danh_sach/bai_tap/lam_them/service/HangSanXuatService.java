@@ -4,7 +4,6 @@ import ss10_danh_sach.bai_tap.lam_them.model.HangSanXuat;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class HangSanXuatService {
     List<HangSanXuat> hangSanXuatList = new ArrayList<>();
