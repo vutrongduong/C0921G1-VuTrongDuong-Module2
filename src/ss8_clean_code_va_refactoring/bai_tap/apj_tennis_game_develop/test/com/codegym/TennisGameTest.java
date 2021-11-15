@@ -11,7 +11,7 @@ import java.util.Collection;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class TennisGameTest {
+public  class  TennisGameTest {
 
     private final int player1Score;
     private final int player2Score;
@@ -78,6 +78,7 @@ public class TennisGameTest {
             if (i < this.player2Score)
                 score2 += 1;
         }
-        assertEquals(this.expectedScore, TennisGame.getScore("John","Bill",score1, score2));
+        TennisGame tennisGame=new TennisGame();
+        assertEquals(this.expectedScore, tennisGame.getScore("John","Bill",score1, score2));
     }
 }

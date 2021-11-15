@@ -1,13 +1,11 @@
 package ss12_java_collections_framework.bai_tap.luyen_tap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManager {
     Product product = new Product();
-    ArrayList<Product> products = new ArrayList<>();
+    //ArrayList<Product> products = new ArrayList<>();
+    LinkedList<Product> products = new LinkedList<>();
 
     {
         products.add(new Product(1, "Cafe", 10000));
@@ -68,17 +66,19 @@ public class ProductManager {
             }
         }
     }
-    public void sapXepTangDan(){
-        SapXepTangDanTheoGia sapXepTangDanTheoGia=new SapXepTangDanTheoGia();
+
+    public void sapXepTangDan() {
+        SapXepTangDanTheoGia sapXepTangDanTheoGia = new SapXepTangDanTheoGia();
         Collections.sort(products, sapXepTangDanTheoGia);
-        for (Product tangDan:products) {
+        for (Product tangDan : products) {
             System.out.println(tangDan);
         }
     }
-    public void sapXepGiamDan(){
-        SapXepGiamDanTheoGia sapXepGiamDanTheoGia=new SapXepGiamDanTheoGia();
+
+    public void sapXepGiamDan() {
+        SapXepGiamDanTheoGia sapXepGiamDanTheoGia = new SapXepGiamDanTheoGia();
         Collections.sort(products, sapXepGiamDanTheoGia);
-        for (Product giamDan:products) {
+        for (Product giamDan : products) {
             System.out.println(giamDan);
         }
     }
