@@ -1,4 +1,4 @@
-package ss11_stack_and_queue.bai_tap.Demerging;
+package ss11_stack_and_queue.bai_tap.demerging_su_dung_queue;
 
 
 import java.util.Collections;
