@@ -1,7 +1,6 @@
 package ss11_stack_and_queue.bai_tap.Demerging;
 
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +9,6 @@ public class NhanVien implements Comparable<NhanVien> {
     String name;
     String gender;
     String date;
-
 
     public NhanVien(String name, String gender, String date) {
         this.name = name;
@@ -53,6 +51,18 @@ public class NhanVien implements Comparable<NhanVien> {
 
     @Override
     public int compareTo(NhanVien o) {
-        return this.date.compareTo(o.date);
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("dd/MM/yyyy").parse(o.date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date date2 = null;
+        try {
+            date2 = new SimpleDateFormat("dd/MM/yyyy").parse(this.date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date2.compareTo(date1);
     }
 }
