@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss8_clean_code_va_refactoring/thuc_hanh/refactoring_coi_ten_bien_va_hang/apj-calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss8_clean_code_va_refactoring/thuc_hanh/refactoring_coi_ten_bien_va_hang/apj_calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss8_clean_code_va_refactoring/thuc_hanh/refactoring_tach_bien/apj-fizzbuzz" vcs="Git" />
+  </component>
+</project>

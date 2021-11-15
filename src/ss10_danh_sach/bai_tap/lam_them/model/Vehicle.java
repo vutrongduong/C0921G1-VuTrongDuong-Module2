@@ -55,4 +55,5 @@ public abstract class Vehicle {
                 ", Năm sản xuất: " + namSanXuat +
                 ", Chủ sở hữu: '" + chuSoHuu+"'";
     }
+
 }
