@@ -1,9 +1,9 @@
 package ss12_java_collections_framework.bai_tap.luyen_tap;
 
 public class Product {
-    int id;
-    String name;
-    int price;
+    private int id;
+    private String name;
+    private int price;
 
     public Product() {
     }
