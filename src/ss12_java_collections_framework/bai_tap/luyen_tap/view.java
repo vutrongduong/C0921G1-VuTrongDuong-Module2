@@ -4,52 +4,32 @@ import java.util.Scanner;
 
 public class view {
     public static void main(String[] args) {
+        ProductManager productManager = new ProductManager();
 //        Scanner scanner = new Scanner(System.in);
-//        ProductManager productManager = new ProductManager();
-//        int choice;
-//        do {
-//            System.out.println("1.Thêm sản phẩm\n" +
-//                    "2.Sửa thông tin sản phẩm theo id\n" +
-//                    "3.Xoá sản phẩm theo id\n" +
-//                    "4.Hiển thị danh sách sản phẩm\n" +
-//                    "5.Tìm kiếm sản phẩm theo tên\n" +
-//                    "6.Sắp xếp sản phẩm tăng dần theo giá\n" +
-//                    "7.Sắp xếp sản phẩm giảm dần theo giá\n" +
-//                    "8.Thoát chương trình");
-//            choice = Integer.parseInt(scanner.nextLine());
-//            switch (choice) {
-//                case 1:
-//                    productManager.addProduct();
-//                    break;
-//                case 2:
-//                    System.out.println("Nhập id sản phẩm cần sửa");
-//                    int id = Integer.parseInt(scanner.nextLine());
-//                    productManager.suaTheoId(id);
-//                    break;
-//                case 3:
-//                    System.out.println("Nhập id sản phẩm cần xóa");
-//                    int idXoa = Integer.parseInt(scanner.nextLine());
-//                    productManager.xoaSanPhamTheoId(idXoa);
-//                    break;
-//                case 4:
-//                    productManager.disPlay();
-//                    break;
-//                case 5:
-//                    System.out.println("Nhập tên sản phẩm cần tìm: ");
-//                    String tenSanPham = scanner.nextLine();
-//                    productManager.timSanPhamTheoTen(tenSanPham);
-//                    System.out.println(tenSanPham);
-//                    break;
-//                case 6:
-//                    productManager.sapXepTangDan();
-//                    break;
-//                case 7:
-//                    productManager.sapXepGiamDan();
-//                    break;
-//                case 8:
-//                    System.exit(0);
-//            }
-//        } while (true);
+//        System.out.println("Nhập id của sản phẩm: ");
+//        int id = Integer.parseInt(scanner.nextLine());
+//        System.out.println("Nhập tên của sản phẩm: ");
+//        String name = scanner.nextLine();
+//        System.out.println("Nhập giá của sản phẩm: ");
+//        int price = Integer.parseInt(scanner.nextLine());
+//        productManager.addProduct(new Product(id, name, price));
+        Product product = new Product(1, "Cafe", 10000);
+        Product product1 = new Product(2, "Cam vắt", 20000);
+        Product product2 = new Product(3, "Nước cà rốt", 21000);
+        Product product3=new Product(4,"Nước lọc",8000);
+        productManager.addProduct(product);
+        productManager.addProduct(product1);
+        productManager.addProduct(product2);
+        productManager.addProduct(product3);
+        productManager.suaTheoId(new Product(1, "Nước dừa", 23000));
+        productManager.xoaSanPhamTheoId(2);
+        for (Product ele : productManager.getProductList()) {
+            System.out.println(ele);
+        }
+        System.out.println("Sắp xếp giảm dần theo giá: ");
+        productManager.sapXepGiamDan();
+        System.out.println("===============");
+        System.out.println("Sắp xếp tăng dần theo giá: ");
+        productManager.sapXepTangDan();
     }
-
 }

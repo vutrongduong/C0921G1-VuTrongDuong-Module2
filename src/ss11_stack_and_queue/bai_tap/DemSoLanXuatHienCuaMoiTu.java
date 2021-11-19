@@ -9,9 +9,9 @@ public class DemSoLanXuatHienCuaMoiTu {
         String chuoi = "Vu Trong      Duong duong      vu code gym    duong";
         String arr[] = chuoi.toLowerCase().split(" ");
         for (String ele : arr) {
-            if (!ele.equals("")) {
+            if (!"".equals(ele)) {
                 if (maps.containsKey(ele)) {
-                    maps.put(ele, maps.get(ele) + 1);
+                    maps.replace(ele, maps.get(ele) + 1);
                 } else {
                     maps.put(ele, 1);
                 }

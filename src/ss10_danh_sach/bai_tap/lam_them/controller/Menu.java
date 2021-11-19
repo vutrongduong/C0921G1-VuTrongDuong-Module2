@@ -2,18 +2,18 @@ package ss10_danh_sach.bai_tap.lam_them.controller;
 
 
 import ss10_danh_sach.bai_tap.lam_them.service.IPhuongTien;
-import ss10_danh_sach.bai_tap.lam_them.service.OToService;
-import ss10_danh_sach.bai_tap.lam_them.service.XeMayService;
-import ss10_danh_sach.bai_tap.lam_them.service.XeTaiService;
+import ss10_danh_sach.bai_tap.lam_them.service.impl.OToimpl;
+import ss10_danh_sach.bai_tap.lam_them.service.impl.XeMayimpl;
+import ss10_danh_sach.bai_tap.lam_them.service.impl.XeTaiimpl;
 
 import java.util.Scanner;
 
 public class Menu {
     public void menu() {
         Scanner scanner = new Scanner(System.in);
-        IPhuongTien xetai = new XeTaiService();
-        IPhuongTien oto = new OToService();
-        IPhuongTien xemay = new XeMayService();
+        IPhuongTien xetai = new XeTaiimpl();
+        IPhuongTien oto = new OToimpl();
+        IPhuongTien xemay = new XeMayimpl();
         int choice;
         int choice1;
         do {

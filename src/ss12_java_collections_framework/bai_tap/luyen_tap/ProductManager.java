@@ -4,52 +4,37 @@ import java.util.*;
 
 public class ProductManager {
 
-    private List<Product>productList;
+    private List<Product> productList;
 
     public ProductManager() {
+        productList = new ArrayList<>();
     }
 
     public ProductManager(List<Product> productList) {
         this.productList = productList;
     }
 
-    {
-        productList.add(new Product(1, "Cafe", 10000));
-        productList.add(new Product(2, "Cam vắt", 20000));
-        productList.add(new Product(3, "Nước cà rốt", 21000));
-        productList.add(new Product(4, "Nước ép cà chua", 22000));
-        productList.add(new Product(5, "Nước lọc", 8000));
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public void addProduct() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhập id của sản phẩm: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập tên của sản phẩm: ");
-        String name = scanner.nextLine();
-        System.out.println("Nhập giá của sản phẩm: ");
-        int price = Integer.parseInt(scanner.nextLine());
-        productList.add(new Product(id, name, price));
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
-    public void suaTheoId(int id) {
-        Scanner scanner = new Scanner(System.in);
-        for (Product ele : productList) {
-            if (ele.getId() == id) {
-                System.out.println(ele);
-            }
-        }
-        System.out.println("Nhập tên mới của sản phẩm: ");
-        String newName = scanner.nextLine();
-        System.out.println("Nhập giá mới của sản phẩm: ");
-        int newPrice = Integer.parseInt(scanner.nextLine());
-        for (Product add : productList) {
-            if (add.getId() == id) {
-                add.setName(newName);
-                add.setPrice(newPrice);
-            }
+    public void addProduct(Product product) {
+        productList.add(product);
+    }
+
+    public void suaTheoId(Product product) {
+        int index=productList.indexOf(product);
+        if(index==-1){
+            productList.add(product);
+        }else {
+            productList.set(index,product);
         }
     }
+
 
     public void xoaSanPhamTheoId(int id) {
         for (int i = 0; i < productList.size(); i++) {

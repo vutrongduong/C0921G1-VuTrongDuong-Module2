@@ -1,9 +1,11 @@
 package ss12_java_collections_framework.bai_tap.luyen_tap;
 
+import java.util.Objects;
+
 public class Product {
     private int id;
     private String name;
-    private int price;
+    private double price;
 
     public Product() {
     }
@@ -30,7 +32,7 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -45,6 +47,14 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id == product.id;
     }
 }
 
