@@ -1,7 +1,5 @@
 package review.service.impl;
 
-
-import review.model.Experience;
 import review.model.Intern;
 import review.service.InternService;
 import review.validate.Check;
@@ -70,10 +68,10 @@ public class Internimpl extends Intern implements InternService {
     @Override
     public void seach(String name, int candidatesType) {
         for (Intern ele : internList) {
-            if ((ele.getCandidatesType() == candidatesType)) {
-                if (ele.getLastName().toLowerCase().equals(name) || ele.getFirstName().toLowerCase().equals(name)) {
-                    System.out.println(ele.toString());
-                }
+            if (ele.getLastName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
+            } else if (ele.getFirstName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
             }
         }
     }

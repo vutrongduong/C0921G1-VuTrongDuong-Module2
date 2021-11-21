@@ -1,7 +1,5 @@
 package review.service.impl;
 
-
-import review.model.Experience;
 import review.model.Fresher;
 import review.service.FresherService;
 import review.validate.Check;
@@ -70,10 +68,10 @@ public class Fresherimpl extends Fresher implements FresherService {
     @Override
     public void seach(String name, int candidatesType) {
         for (Fresher ele : fresherList) {
-            if ((ele.getCandidatesType() == candidatesType)) {
-                if (ele.getLastName().toLowerCase().equals(name) || ele.getFirstName().toLowerCase().equals(name)) {
-                    System.out.println(ele.toString());
-                }
+            if (ele.getLastName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
+            } else if (ele.getFirstName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
             }
         }
 
@@ -81,8 +79,8 @@ public class Fresherimpl extends Fresher implements FresherService {
 
     @Override
     public void disPLay() {
-        for (Fresher ele:fresherList) {
-            System.out.println(ele.getLastName()+" "+ele.getLastName());
+        for (Fresher ele : fresherList) {
+            System.out.println(ele.getLastName() + " " + ele.getLastName());
         }
     }
 }

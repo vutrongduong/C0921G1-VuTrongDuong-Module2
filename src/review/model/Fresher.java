@@ -1,7 +1,6 @@
 package review.model;
 
-import review.validate.EmailException;
-import review.validate.PhoneException;
+
 
 public class Fresher extends Candidates {
     String graduationDate;
@@ -48,12 +47,4 @@ public class Fresher extends Candidates {
         this.education = education;
     }
 
-//    @Override
-//    public String toString() {
-//        return super.toString() +
-//                "graduationDate='" + graduationDate + '\'' +
-//                ", graduationRank='" + graduationRank + '\'' +
-//                ", education='" + education + '\'' +
-//                '}';
-//    }
 }

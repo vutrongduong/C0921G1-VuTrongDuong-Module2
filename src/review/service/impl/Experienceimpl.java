@@ -16,7 +16,7 @@ public class Experienceimpl implements ExperienceService {
 
     {
         experienceList.add(new Experience(1, "Aelbrecht", "Stefan", "1990", "Spain", "9403941111", "stefan@gmail.com", 0, "8", "Mentorship"));
-        experienceList.add(new Experience(2, "Aguirre ", "Eva", "1990", "Sao paulo", "9403941111", "eva@asante.com", 0, "10", "Coaching"));
+        experienceList.add(new Experience(2, "Aguirre", "Eva", "1990", "Sao paulo", "9403941111", "eva@asante.com", 0, "10", "Coaching"));
         experienceList.add(new Experience(3, "Ahlgren", "Maria", "1989", "Spain", "9403941111", "maria@asante.com", 1, "11", "Prioritization"));
         experienceList.add(new Experience(4, "Antošová", "Adeleva", "1989", "Rio de janero", "9403941111", "adelave@janeo.com", 0, "15", "Politeness"));
     }
@@ -66,10 +66,10 @@ public class Experienceimpl implements ExperienceService {
     @Override
     public void seach(String name, int candidatesType) {
         for (Experience ele : experienceList) {
-            if ((ele.getCandidatesType() == candidatesType)) {
-                if (ele.getLastName().toLowerCase().equals(name) || ele.getFirstName().toLowerCase().equals(name)) {
-                    System.out.println(ele.toString());
-                }
+            if (ele.getLastName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
+            } else if (ele.getFirstName().toLowerCase().contains(name)) {
+                System.out.println(ele.toString());
             }
         }
     }
@@ -80,5 +80,10 @@ public class Experienceimpl implements ExperienceService {
             System.out.println(ele.getLastName() + " " + ele.getLastName());
         }
     }
-}
 
+
+    public static void main(String[] args) {
+        Experienceimpl experienceimpl = new Experienceimpl();
+        experienceimpl.seach("eva", 0);
+    }
+}

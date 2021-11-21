@@ -1,7 +1,6 @@
 package review.model;
 
-import review.validate.EmailException;
-import review.validate.PhoneException;
+
 
 public class Experience extends Candidates {
     String expInYear;
@@ -36,12 +35,4 @@ public class Experience extends Candidates {
     public void setProSkill(String proSkill) {
         this.proSkill = proSkill;
     }
-//
-//    @Override
-//    public String toString() {
-//        return super.toString() +
-//                "expInYear=" + expInYear +
-//                ", proSkill='" + proSkill + '\'' +
-//                '}';
-//    }
 }

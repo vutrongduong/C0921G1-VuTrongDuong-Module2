@@ -25,12 +25,6 @@ public class Check {
         }
     }
 
-//    public static void main(String[] args) {
-//        Check check = new Check();
-////        System.out.println(check.checkExpInYear());
-//        System.out.println(check.checkGraduationRank());
-//    }
-
     public String checkPhone() {
         String regex = "^\\d{10}";
         while (true) {
@@ -104,5 +98,9 @@ public class Check {
             }
         }
     }
-
+//    public static void main(String[] args) {
+//        Check check = new Check();
+////        System.out.println(check.checkExpInYear());
+//        System.out.println(check.checkGraduationRank());
+//    }
 }

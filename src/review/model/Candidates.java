@@ -1,7 +1,6 @@
 package review.model;
 
-import review.validate.EmailException;
-import review.validate.PhoneException;
+
 
 public abstract class Candidates {
     private int id;
@@ -95,7 +94,7 @@ public abstract class Candidates {
     @Override
     public String toString() {
         return
-                firstName + lastName + '|' + birthDate + '|' + address + '|' + phone + "|" + email + '|' + candidatesType;
+                firstName +" "+ lastName + '|' + birthDate + '|' + address + '|' + phone + "|" + email + '|' + candidatesType;
 
     }
 }
