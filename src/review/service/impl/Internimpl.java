@@ -1,6 +1,7 @@
 package review.service.impl;
 
 
+import review.model.Fresher;
 import review.model.Intern;
 import review.service.InternService;
 import review.validate.Check;
@@ -44,10 +45,10 @@ public class Internimpl implements InternService {
             int semester = Integer.parseInt(scanner.nextLine());
             System.out.println("Enter University name : ");
             String universityName = scanner.nextLine();
+            internList.add(new Intern(id, firstName, lastName, birthDate, address, phone, email, candidatesType, majors, semester, universityName));
+            System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
-            if (choice.equals("Y")) {
-                internList.add(new Intern(id, firstName, lastName, birthDate, address, phone, email, candidatesType, majors, semester, universityName));
-            } else {
+            if (choice.equals("N")) {
                 for (Intern ele : internList) {
                     System.out.println(ele);
                 }

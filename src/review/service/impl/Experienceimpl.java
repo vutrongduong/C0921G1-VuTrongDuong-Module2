@@ -40,11 +40,10 @@ public class Experienceimpl implements ExperienceService {
             String expInYear = check.checkExpInYear();
             System.out.println("Enter pro skill : ");
             String proSkill = scanner.nextLine();
+            experienceList.add(new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill));
             System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
-            if (choice.equals("Y")) {
-                experienceList.add(new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill));
-            } else {
+            if (choice.equals("N")) {
                 for (Experience ele : experienceList) {
                     System.out.println(ele);
                 }

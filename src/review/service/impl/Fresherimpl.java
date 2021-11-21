@@ -1,5 +1,6 @@
 package review.service.impl;
 
+import review.model.Experience;
 import review.model.Fresher;
 import review.service.FresherService;
 import review.validate.Check;
@@ -42,10 +43,9 @@ public class Fresherimpl implements FresherService {
             System.out.println("Enter Education : ");
             String education = scanner.nextLine();
             fresherList.add(new Fresher(id, firstName, lastName, birthDate, address, phone, email, candidatesType, graduationDate, graduationRank, education));
+            System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
-            if (choice.equals("Y")) {
-                fresherList.add(new Fresher(id, firstName, lastName, birthDate, address, phone, email, candidatesType, graduationDate, graduationRank, education));
-            } else {
+            if (choice.equals("N")) {
                 for (Fresher ele : fresherList) {
                     System.out.println(ele);
                 }
