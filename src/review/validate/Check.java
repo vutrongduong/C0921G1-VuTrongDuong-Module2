@@ -1,6 +1,7 @@
 package review.validate;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -44,17 +45,17 @@ public class Check {
 
     public int checkExpInYear() {
         while (true) {
-            String regex = "\\d{1,2}";
-            System.out.println("Enter Exp In Year : ");
-            String expInYear = scanner.nextLine();
             try {
-                if (expInYear.matches(regex)) {
-                    return Integer.parseInt(expInYear);
+                System.out.println("Enter Exp In Year : ");
+                int exp = Integer.parseInt(scanner.nextLine());
+                if (exp >= 0 && exp <= 100) {
+                    return exp;
+
                 } else {
                     throw new ExpInYearException();
                 }
-            } catch (ExpInYearException e) {
-                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Invalid data , please re-enter is number from 0 to 100");
             }
         }
     }
@@ -71,7 +72,7 @@ public class Check {
                     throw new BirthDateException();
                 }
             } catch (BirthDateException e) {
-                System.out.println(e.getMessage());
+                e.getMessage();
             }
         }
     }
@@ -97,10 +98,5 @@ public class Check {
                 System.out.println(e.getMessage());
             }
         }
-    }
-    public static void main(String[] args) {
-        Check check = new Check();
-        System.out.println(check.checkExpInYear());
-//        System.out.println(check.checkGraduationRank());
     }
 }
