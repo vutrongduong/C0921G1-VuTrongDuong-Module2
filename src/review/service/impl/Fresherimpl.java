@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Fresherimpl extends Fresher implements FresherService {
+public class Fresherimpl implements FresherService {
     List<Fresher> fresherList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     Check check = new Check();
@@ -68,10 +68,12 @@ public class Fresherimpl extends Fresher implements FresherService {
     @Override
     public void seach(String name, int candidatesType) {
         for (Fresher ele : fresherList) {
-            if (ele.getLastName().toLowerCase().contains(name)) {
-                System.out.println(ele.toString());
-            } else if (ele.getFirstName().toLowerCase().contains(name)) {
-                System.out.println(ele.toString());
+            if ((ele.getCandidatesType() == candidatesType)) {
+                if (ele.getLastName().toLowerCase().contains(name)) {
+                    System.out.println(ele.toString());
+                } else if (ele.getFirstName().toLowerCase().contains(name)) {
+                    System.out.println(ele.toString());
+                }
             }
         }
 
@@ -80,7 +82,7 @@ public class Fresherimpl extends Fresher implements FresherService {
     @Override
     public void disPLay() {
         for (Fresher ele : fresherList) {
-            System.out.println(ele.getLastName() + " " + ele.getLastName());
+            System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
     }
 }

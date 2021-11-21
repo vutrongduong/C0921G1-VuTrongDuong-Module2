@@ -1,5 +1,6 @@
 package review.service.impl;
 
+
 import review.model.Intern;
 import review.service.InternService;
 import review.validate.Check;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Internimpl extends Intern implements InternService {
+public class Internimpl implements InternService {
     List<Intern> internList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     Check check = new Check();
@@ -68,10 +69,12 @@ public class Internimpl extends Intern implements InternService {
     @Override
     public void seach(String name, int candidatesType) {
         for (Intern ele : internList) {
-            if (ele.getLastName().toLowerCase().contains(name)) {
-                System.out.println(ele.toString());
-            } else if (ele.getFirstName().toLowerCase().contains(name)) {
-                System.out.println(ele.toString());
+            if ((ele.getCandidatesType() == candidatesType)) {
+                if (ele.getLastName().toLowerCase().contains(name)) {
+                    System.out.println(ele.toString());
+                } else if (ele.getFirstName().toLowerCase().contains(name)) {
+                    System.out.println(ele.toString());
+                }
             }
         }
     }
@@ -79,7 +82,7 @@ public class Internimpl extends Intern implements InternService {
     @Override
     public void disPLay() {
         for (Intern ele : internList) {
-            System.out.println(ele.getLastName() + " " + ele.getLastName());
+            System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
     }
 }

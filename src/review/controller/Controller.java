@@ -44,6 +44,8 @@ public class Controller {
                     System.out.println("Input type of candidate: ");
                     int candidateType = Integer.parseInt(scanner.nextLine());
                     experienceimpl.seach(name, candidateType);
+                    fresherimpl.seach(name, candidateType);
+                    internimpl.seach(name, candidateType);
                     break;
                 case 5:
                     System.exit(0);
