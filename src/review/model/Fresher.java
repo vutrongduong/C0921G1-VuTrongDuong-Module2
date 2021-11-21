@@ -1,33 +1,32 @@
 package review.model;
 
 
-
 public class Fresher extends Candidates {
-    String graduationDate;
+    double graduationDate;
     String graduationRank;
     String education;
 
     public Fresher() {
     }
 
-    public Fresher(String graduationDate, String graduationRank, String education) {
+    public Fresher(double graduationDate, String graduationRank, String education) {
         this.graduationDate = graduationDate;
         this.graduationRank = graduationRank;
         this.education = education;
     }
 
-    public Fresher(int id, String firstName, String lastName, String birthDate, String address, String phone, String email, int candidatesType, String graduationDate, String graduationRank, String education){
+    public Fresher(int id, String firstName, String lastName, double birthDate, String address, double phone, String email, int candidatesType, double graduationDate, String graduationRank, String education) {
         super(id, firstName, lastName, birthDate, address, phone, email, candidatesType);
         this.graduationDate = graduationDate;
         this.graduationRank = graduationRank;
         this.education = education;
     }
 
-    public String getGraduationDate() {
+    public double getGraduationDate() {
         return graduationDate;
     }
 
-    public void setGraduationDate(String graduationDate) {
+    public void setGraduationDate(double graduationDate) {
         this.graduationDate = graduationDate;
     }
 

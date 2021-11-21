@@ -1,6 +1,5 @@
 package review.service.impl;
 
-import review.model.Experience;
 import review.model.Fresher;
 import review.service.FresherService;
 import review.validate.Check;
@@ -15,10 +14,10 @@ public class Fresherimpl implements FresherService {
     Check check = new Check();
 
     {
-        fresherList.add(new Fresher(1, "Barbosa De", "Souza", "1989", "Sao paulo", "1234567890", "souza@asante.com", 1, "May 28, 2021", "Excellence", "University of Chicago"));
-        fresherList.add(new Fresher(2, "Cabrera", "Cornide", "1990", "England", "1234567890", "cornide@asante.com", 0, "June 2, 2021", "Poor", "Washington and Lee University"));
-        fresherList.add(new Fresher(3, "Calderon", "Cuevas", "1987", "Spain", "1234567890", "cuevas@asante.com", 1, "May 19, 2021", "Good", "Babson College"));
-        fresherList.add(new Fresher(4, "Casulari", "Motta", "1986", "Spain", "1234567890", "motta@asante.com", 2, "May 27, 2021", "Good", "Duke University"));
+        fresherList.add(new Fresher(1, "Barbosa De", "Souza", 1989, "Sao paulo", 1234567890, "souza@asante.com", 1, 2021, "Excellence", "University of Chicago"));
+        fresherList.add(new Fresher(2, "Cabrera", "Cornide", 1990, "England", 1234567890, "cornide@asante.com", 0, 2021, "Poor", "Washington and Lee University"));
+        fresherList.add(new Fresher(3, "Calderon", "Cuevas", 1987, "Spain", 1234567890, "cuevas@asante.com", 1, 2021, "Good", "Babson College"));
+        fresherList.add(new Fresher(4, "Casulari", "Motta", 1986, "Spain", 1234567890, "motta@asante.com", 2, 2021, "Good", "Duke University"));
     }
 
     @Override
@@ -30,15 +29,15 @@ public class Fresherimpl implements FresherService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            String birthDate = check.checkBirthDate();
+            double birthDate = check.checkBirthDate();
             String address = scanner.nextLine();
             System.out.println("Enter Phone : ");
-            String phone = check.checkPhone();
+            double phone = check.checkPhone();
             String email = check.checkEmail();
             System.out.println("Enter candidates type :");
             int candidatesType = Integer.parseInt(scanner.nextLine());
             System.out.println("Enter Graduation date : ");
-            String graduationDate = scanner.nextLine();
+            double graduationDate = Double.parseDouble(scanner.nextLine());
             String graduationRank = check.checkGraduationRank();
             System.out.println("Enter Education : ");
             String education = scanner.nextLine();

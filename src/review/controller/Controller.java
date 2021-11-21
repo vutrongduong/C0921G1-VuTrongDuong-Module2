@@ -19,7 +19,8 @@ public class Controller {
                     "2. Fresher\n" +
                     "3. Internship\n" +
                     "4. Searching\n" +
-                    "5. Exit\n");
+                    "5. Exit\n" +
+                    "(Please choose 1 to Create Experience Candidate, 2 to Create Fresher Candidate, 3 to Internship Candidate, 4 to Searching and 5 to Exit program)");
             Scanner scanner = new Scanner(System.in);
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {

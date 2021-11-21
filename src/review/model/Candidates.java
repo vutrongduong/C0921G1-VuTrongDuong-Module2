@@ -1,21 +1,20 @@
 package review.model;
 
 
-
 public abstract class Candidates {
     private int id;
     private String firstName;
     private String lastName;
-    private String birthDate;
+    private double birthDate;
     private String address;
-    private String phone;
+    private double phone;
     private String email;
     private int candidatesType;
 
     public Candidates() {
     }
 
-    public Candidates(int id, String firstName, String lastName, String birthDate, String address, String phone, String email, int candidatesType) {
+    public Candidates(int id, String firstName, String lastName, double birthDate, String address, double phone, String email, int candidatesType) {
 
         this.id = id;
         this.firstName = firstName;
@@ -51,11 +50,11 @@ public abstract class Candidates {
         this.lastName = lastName;
     }
 
-    public String getBirthDate() {
+    public double getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(double birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -67,11 +66,11 @@ public abstract class Candidates {
         this.address = address;
     }
 
-    public String getPhone() {
+    public double getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(double phone) {
         this.phone = phone;
     }
 
@@ -94,7 +93,7 @@ public abstract class Candidates {
     @Override
     public String toString() {
         return
-                firstName +" "+ lastName + '|' + birthDate + '|' + address + '|' + phone + "|" + email + '|' + candidatesType;
+                firstName + " " + lastName + '|' + birthDate + '|' + address + '|' + phone + "|" + email + '|' + candidatesType;
 
     }
 }

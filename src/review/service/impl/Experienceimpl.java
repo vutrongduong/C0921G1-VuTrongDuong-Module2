@@ -15,10 +15,10 @@ public class Experienceimpl implements ExperienceService {
     Check check = new Check();
 
     {
-        experienceList.add(new Experience(1, "Aelbrecht", "Stefan", "1990", "Spain", "9403941111", "stefan@gmail.com", 2, "8", "Mentorship"));
-        experienceList.add(new Experience(2, "Aguirre", "Eva", "1990", "Sao paulo", "9403941111", "eva@asante.com", 0, "10", "Coaching"));
-        experienceList.add(new Experience(3, "Ahlgren", "Maria", "1989", "Spain", "9403941111", "maria@asante.com", 1, "11", "Prioritization"));
-        experienceList.add(new Experience(4, "Antošová", "Adeleva", "1989", "Rio de janero", "9403941111", "adelave@janeo.com", 0, "15", "Politeness"));
+        experienceList.add(new Experience(1, "Aelbrecht", "Stefan", 1990, "Spain", 1234567890, "stefan@gmail.com", 2, 8, "Mentorship"));
+        experienceList.add(new Experience(2, "Aguirre", "Eva", 1990, "Sao paulo", 1234567890, "eva@asante.com", 0, 10, "Coaching"));
+        experienceList.add(new Experience(3, "Ahlgren", "Maria", 1989, "Spain", 1234567890, "maria@asante.com", 1, 11, "Prioritization"));
+        experienceList.add(new Experience(4, "Antošová", "Adeleva", 1989, "Rio de janero", 1234567890, "adelave@janeo.com", 0, 15, "Politeness"));
     }
 
     @Override
@@ -30,14 +30,14 @@ public class Experienceimpl implements ExperienceService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            String birthDate = check.checkBirthDate();
+            double birthDate = check.checkBirthDate();
             System.out.println("Enter Address : ");
             String address = scanner.nextLine();
-            String phone = check.checkPhone();
+            double phone = check.checkPhone();
             String email = check.checkEmail();
             System.out.println("Enter candidates type :");
             int candidatesType = Integer.parseInt(scanner.nextLine());
-            String expInYear = check.checkExpInYear();
+            int expInYear = check.checkExpInYear();
             System.out.println("Enter pro skill : ");
             String proSkill = scanner.nextLine();
             experienceList.add(new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill));

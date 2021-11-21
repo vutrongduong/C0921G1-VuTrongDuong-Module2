@@ -25,14 +25,14 @@ public class Check {
         }
     }
 
-    public String checkPhone() {
-        String regex = "^\\d{10}";
+    public double checkPhone() {
+        String regex = "^\\d{10,}";
         while (true) {
             System.out.println("Enter phone  : ");
             String phone = scanner.nextLine();
             try {
                 if (phone.matches(regex)) {
-                    return phone;
+                    return Double.parseDouble(phone);
                 } else {
                     throw new PhoneException();
                 }
@@ -42,14 +42,14 @@ public class Check {
         }
     }
 
-    public String checkExpInYear() {
+    public int checkExpInYear() {
         while (true) {
             String regex = "\\d{1,2}";
             System.out.println("Enter Exp In Year : ");
             String expInYear = scanner.nextLine();
             try {
                 if (expInYear.matches(regex)) {
-                    return expInYear;
+                    return Integer.parseInt(expInYear);
                 } else {
                     throw new ExpInYearException();
                 }
@@ -59,14 +59,14 @@ public class Check {
         }
     }
 
-    public String checkBirthDate() {
+    public double checkBirthDate() {
         String regex = "\\d{4}";
         while (true) {
             System.out.println("Enter birth date  : ");
             String birthDate = scanner.nextLine();
             try {
                 if (birthDate.matches(regex)) {
-                    return birthDate;
+                    return Double.parseDouble(birthDate);
                 } else {
                     throw new BirthDateException();
                 }
@@ -98,9 +98,9 @@ public class Check {
             }
         }
     }
-//    public static void main(String[] args) {
-//        Check check = new Check();
-////        System.out.println(check.checkExpInYear());
+    public static void main(String[] args) {
+        Check check = new Check();
+        System.out.println(check.checkExpInYear());
 //        System.out.println(check.checkGraduationRank());
-//    }
+    }
 }

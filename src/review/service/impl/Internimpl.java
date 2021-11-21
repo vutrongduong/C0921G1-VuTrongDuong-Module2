@@ -1,7 +1,5 @@
 package review.service.impl;
 
-
-import review.model.Fresher;
 import review.model.Intern;
 import review.service.InternService;
 import review.validate.Check;
@@ -16,10 +14,10 @@ public class Internimpl implements InternService {
     Check check = new Check();
 
     {
-        internList.add(new Intern(1, "Maria", "Madeleine", "1989", "Sao paulo", "1234567890", "eva@asante.com", 0, "Accountant", 1, "Amity University Delhi"));
-        internList.add(new Intern(2, "Csokán", "Babett", "1990", "England", "1234567890", "babett@asante.com", 1, "Marketing", 2, "Amravati University"));
-        internList.add(new Intern(3, "Joana", "Filipa", "1991", "Rio de janero", "1234567890", "filipa@asante.com", 2, "Ecommerce", 2, "Amrita Institute Of Technology Science"));
-        internList.add(new Intern(4, "Patricia", "Carine", "1992", "Spain", "1234567890", "carine@asante.com", 1, "Office administration", 1, "Amrita Vishwa Vidyapeetham University"));
+        internList.add(new Intern(1, "Maria", "Madeleine", 1989, "Sao paulo", 1234567890, "eva@asante.com", 0, "Accountant", 1, "Amity University Delhi"));
+        internList.add(new Intern(2, "Csokán", "Babett", 1990, "England", 1234567890, "babett@asante.com", 1, "Marketing", 2, "Amravati University"));
+        internList.add(new Intern(3, "Joana", "Filipa", 1991, "Rio de janero", 1234567890, "filipa@asante.com", 2, "Ecommerce", 2, "Amrita Institute Of Technology Science"));
+        internList.add(new Intern(4, "Patricia", "Carine", 1992, "Spain", 1234567890, "carine@asante.com", 1, "Office administration", 1, "Amrita Vishwa Vidyapeetham University"));
     }
 
     @Override
@@ -31,11 +29,11 @@ public class Internimpl implements InternService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            String birthDate = check.checkBirthDate();
+            double birthDate = check.checkBirthDate();
             System.out.println("Enter Address : ");
             String address = scanner.nextLine();
             System.out.println("Enter Phone : ");
-            String phone = check.checkPhone();
+            double phone = check.checkPhone();
             String email = check.checkEmail();
             System.out.println("Enter candidates type :");
             int candidatesType = Integer.parseInt(scanner.nextLine());
