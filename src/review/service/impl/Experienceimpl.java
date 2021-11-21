@@ -82,8 +82,3 @@ public class Experienceimpl implements ExperienceService {
     }
 }
 
-//    public static void main(String[] args) {
-//        Experienceimpl experienceimpl =new Experienceimpl();
-//        experienceimpl.seach("eva",0);
-//    }
-//}
