@@ -54,12 +54,49 @@ public class Experienceimpl implements ExperienceService {
 
     @Override
     public void update() {
-
+        for (Experience experience : experienceList) {
+            System.out.println("Id:" + (experience.getId() + " - " + experience));
+        }
+        System.out.println("Enter id : ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter first name : ");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter lat name : ");
+        String lastName = scanner.nextLine();
+        double birthDate = check.checkBirthDate();
+        System.out.println("Enter Address : ");
+        String address = scanner.nextLine();
+        double phone = check.checkPhone();
+        String email = check.checkEmail();
+        System.out.println("Enter candidates type :");
+        int candidatesType = Integer.parseInt(scanner.nextLine());
+        int expInYear = check.checkExpInYear();
+        System.out.println("Enter pro skill : ");
+        String proSkill = scanner.nextLine();
+        Experience experience=new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill);
+        int index=experienceList.indexOf(experience);
+        if (index==-1){
+            experienceList.add(experience);
+        }else {
+            experienceList.set(index,experience);
+        }
     }
 
     @Override
     public void delete() {
-
+        for (int i = 0; i < experienceList.size(); i++) {
+            System.out.println((i + 1) + ". " + experienceList.get(i));
+        }
+        System.out.println("Select the candidate you want to delete");
+        int choice = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < experienceList.size(); i++) {
+            if ((i + 1) == choice) {
+                experienceList.remove(i);
+            }
+        }
+        for (int i = 0; i < experienceList.size(); i++) {
+            System.out.println((i + 1) + ". " + experienceList.get(i));
+        }
     }
 
     @Override

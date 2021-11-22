@@ -1,6 +1,8 @@
 package review.model;
 
 
+import java.util.Objects;
+
 public abstract class Candidates {
     private int id;
     private String firstName;
@@ -95,5 +97,13 @@ public abstract class Candidates {
         return
                 firstName + " " + lastName + '|' + birthDate + '|' + address + '|' + phone + "|" + email + '|' + candidatesType;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Candidates that = (Candidates) o;
+        return id == that.id;
     }
 }

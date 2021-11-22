@@ -25,13 +25,67 @@ public class Controller {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    experienceimpl.add();
+                    int choice1;
+                    do {
+                        System.out.println("1. Add Experience\n" +
+                                "2.Update Experience\n" +
+                                "3.Delete Experience\n" +
+                                "4.Return menu\n");
+                        choice1 = Integer.parseInt(scanner.nextLine());
+                        switch (choice1) {
+                            case 1:
+                                experienceimpl.add();
+                                break;
+                            case 2:
+                                experienceimpl.update();
+                                break;
+                            case 3:
+                                experienceimpl.delete();
+                                break;
+                        }
+                    } while (choice1 != 4);
                     break;
                 case 2:
-                    fresherimpl.add();
+                    int choice2;
+                    do {
+                        System.out.println("1. Add Experience\n" +
+                                "2.Update Experience\n" +
+                                "3.Delete Experience\n" +
+                                "4.Return menu\n");
+                        choice2 = Integer.parseInt(scanner.nextLine());
+                        switch (choice2) {
+                            case 1:
+                                fresherimpl.add();
+                                break;
+                            case 2:
+                                fresherimpl.update();
+                                break;
+                            case 3:
+                                fresherimpl.delete();
+                                break;
+                        }
+                    } while (choice2 != 4);
                     break;
                 case 3:
-                    internimpl.add();
+                    int choice3;
+                    do {
+                        System.out.println("1. Add Experience\n" +
+                                "2.Update Experience\n" +
+                                "3.Delete Experience\n" +
+                                "4.Return menu\n");
+                        choice3 = Integer.parseInt(scanner.nextLine());
+                        switch (choice3) {
+                            case 1:
+                                internimpl.add();
+                                break;
+                            case 2:
+                                internimpl.update();
+                                break;
+                            case 3:
+                                internimpl.delete();
+                                break;
+                        }
+                    } while (choice3 != 4);
                     break;
                 case 4:
                     System.out.println("===========EXPERIENCE CANDIDATE============");

@@ -28,7 +28,9 @@ public class ReadFile {
             e.printStackTrace();
         } finally {
             try {
-                bufferedReader.close();
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

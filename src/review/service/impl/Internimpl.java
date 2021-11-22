@@ -57,12 +57,53 @@ public class Internimpl implements InternService {
 
     @Override
     public void update() {
-
+        for (Intern intern : internList) {
+            System.out.println("Id:" + (intern.getId() + " - " + intern));
+        }
+        System.out.println("Enter id : ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter first name : ");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter lat name : ");
+        String lastName = scanner.nextLine();
+        double birthDate = check.checkBirthDate();
+        System.out.println("Enter Address : ");
+        String address = scanner.nextLine();
+        System.out.println("Enter Phone : ");
+        double phone = check.checkPhone();
+        String email = check.checkEmail();
+        System.out.println("Enter candidates type :");
+        int candidatesType = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter majors : ");
+        String majors = scanner.nextLine();
+        System.out.println("Enter semester : ");
+        int semester = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter University name : ");
+        String universityName = scanner.nextLine();
+        Intern intern = new Intern(id, firstName, lastName, birthDate, address, phone, email, candidatesType, majors, semester, universityName);
+        int index = internList.indexOf(intern);
+        if (index == -1) {
+            internList.add(intern);
+        } else {
+            internList.set(index, intern);
+        }
     }
 
     @Override
     public void delete() {
-
+        for (int i = 0; i < internList.size(); i++) {
+            System.out.println((i + 1) + ". " + internList.get(i));
+        }
+        System.out.println("Select the candidate you want to delete");
+        int choice = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < internList.size(); i++) {
+            if ((i + 1) == choice) {
+                internList.remove(i);
+            }
+        }
+        for (int i = 0; i < internList.size(); i++) {
+            System.out.println((i + 1) + ". " + internList.get(i));
+        }
     }
 
     @Override

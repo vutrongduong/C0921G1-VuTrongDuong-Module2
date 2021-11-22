@@ -35,4 +35,6 @@ public class Experience extends Candidates {
     public void setProSkill(String proSkill) {
         this.proSkill = proSkill;
     }
+
+
 }

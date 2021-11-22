@@ -56,12 +56,52 @@ public class Fresherimpl implements FresherService {
 
     @Override
     public void update() {
+        for (Fresher fresher : fresherList) {
+            System.out.println("Id:" + (fresher.getId() + " - " + fresher));
+        }
+        System.out.println("Enter id : ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter first name : ");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter lat name : ");
+        String lastName = scanner.nextLine();
+        double birthDate = check.checkBirthDate();
+        String address = scanner.nextLine();
+        System.out.println("Enter Phone : ");
+        double phone = check.checkPhone();
+        String email = check.checkEmail();
+        System.out.println("Enter candidates type :");
+        int candidatesType = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter Graduation date : ");
+        double graduationDate = Double.parseDouble(scanner.nextLine());
+        String graduationRank = check.checkGraduationRank();
+        System.out.println("Enter Education : ");
+        String education = scanner.nextLine();
+        Fresher fresher = new Fresher(id, firstName, lastName, birthDate, address, phone, email, candidatesType, graduationDate, graduationRank, education);
+        int index = fresherList.indexOf(fresher);
+        if (index == -1) {
+            fresherList.add(fresher);
+        } else {
+            fresherList.set(index, fresher);
+        }
 
     }
 
     @Override
     public void delete() {
-
+        for (int i = 0; i < fresherList.size(); i++) {
+            System.out.println((i + 1) + ". " + fresherList.get(i));
+        }
+        System.out.println("Select the candidate you want to delete");
+        int choice = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < fresherList.size(); i++) {
+            if ((i + 1) == choice) {
+                fresherList.remove(i);
+            }
+        }
+        for (int i = 0; i < fresherList.size(); i++) {
+            System.out.println((i + 1) + ". " + fresherList.get(i));
+        }
     }
 
     @Override
