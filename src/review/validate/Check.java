@@ -51,13 +51,13 @@ public class Check {
         }
     }
 
-    public double checkBirthDate() {
+    public int checkBirthDate() {
         String regex = "\\d{4}";
         while (true) {
             System.out.println("Enter birth date  : ");
             String birthDate = scanner.nextLine();
             if (birthDate.matches(regex)) {
-                return Double.parseDouble(birthDate);
+                return Integer.parseInt(birthDate);
             } else {
                 System.out.println("Invalid data , please re-enter is number with length is 4 character");
             }
@@ -80,6 +80,11 @@ public class Check {
                 System.out.println("Invalid data ,please re-enter Rank of Graduation: with one of 4 values ( Excellence, Good, Fair, Poor )");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Check check =new Check();
+        check.checkExpInYear();
     }
 }
     

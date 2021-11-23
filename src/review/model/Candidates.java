@@ -7,7 +7,7 @@ public abstract class Candidates {
     private int id;
     private String firstName;
     private String lastName;
-    private double birthDate;
+    private int birthDate;
     private String address;
     private double phone;
     private String email;
@@ -16,7 +16,7 @@ public abstract class Candidates {
     public Candidates() {
     }
 
-    public Candidates(int id, String firstName, String lastName, double birthDate, String address, double phone, String email, int candidatesType) {
+    public Candidates(int id, String firstName, String lastName, int birthDate, String address, double phone, String email, int candidatesType) {
 
         this.id = id;
         this.firstName = firstName;
@@ -52,11 +52,11 @@ public abstract class Candidates {
         this.lastName = lastName;
     }
 
-    public double getBirthDate() {
+    public int getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(double birthDate) {
+    public void setBirthDate(int birthDate) {
         this.birthDate = birthDate;
     }
 

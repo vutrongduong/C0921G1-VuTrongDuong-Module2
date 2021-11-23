@@ -29,7 +29,7 @@ public class Fresherimpl implements FresherService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            double birthDate = check.checkBirthDate();
+            int birthDate = check.checkBirthDate();
             String address = scanner.nextLine();
             System.out.println("Enter Phone : ");
             double phone = check.checkPhone();
@@ -65,7 +65,7 @@ public class Fresherimpl implements FresherService {
         String firstName = scanner.nextLine();
         System.out.println("Enter lat name : ");
         String lastName = scanner.nextLine();
-        double birthDate = check.checkBirthDate();
+        int birthDate = check.checkBirthDate();
         String address = scanner.nextLine();
         System.out.println("Enter Phone : ");
         double phone = check.checkPhone();
@@ -123,5 +123,8 @@ public class Fresherimpl implements FresherService {
         for (Fresher ele : fresherList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
+    }
+    public List<Fresher>getFresherList(){
+        return fresherList;
     }
 }

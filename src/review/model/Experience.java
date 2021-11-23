@@ -14,7 +14,7 @@ public class Experience extends Candidates {
         this.proSkill = proSkill;
     }
 
-    public Experience(int id, String firstName, String lastName, double birthDate, String address, double phone, String email, int candidatesType, int expInYear, String proSkill) {
+    public Experience(int id, String firstName, String lastName, int birthDate, String address, double phone, String email, int candidatesType, int expInYear, String proSkill) {
         super(id, firstName, lastName, birthDate, address, phone, email, candidatesType);
         this.expInYear = expInYear;
         this.proSkill = proSkill;

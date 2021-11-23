@@ -4,13 +4,29 @@ import review.model.Experience;
 import review.service.ExperienceService;
 import review.validate.Check;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Experienceimpl implements ExperienceService {
     List<Experience> experienceList = new ArrayList<>();
+
+//    public Experienceimpl() {
+//        experienceList = new ArrayList<>();
+//    }
+//
+//    public Experienceimpl(List<Experience> experienceList) {
+//        this.experienceList = experienceList;
+//    }
+//
+//    public List<Experience> getExperienceList() {
+//        return experienceList;
+//    }
+//
+//    public void setExperienceList(List<Experience> experienceList) {
+//        this.experienceList = experienceList;
+//    }
+
     Scanner scanner = new Scanner(System.in);
     Check check = new Check();
 
@@ -30,7 +46,7 @@ public class Experienceimpl implements ExperienceService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            double birthDate = check.checkBirthDate();
+            int birthDate = check.checkBirthDate();
             System.out.println("Enter Address : ");
             String address = scanner.nextLine();
             double phone = check.checkPhone();
@@ -63,7 +79,7 @@ public class Experienceimpl implements ExperienceService {
         String firstName = scanner.nextLine();
         System.out.println("Enter lat name : ");
         String lastName = scanner.nextLine();
-        double birthDate = check.checkBirthDate();
+        int birthDate = check.checkBirthDate();
         System.out.println("Enter Address : ");
         String address = scanner.nextLine();
         double phone = check.checkPhone();
@@ -73,12 +89,12 @@ public class Experienceimpl implements ExperienceService {
         int expInYear = check.checkExpInYear();
         System.out.println("Enter pro skill : ");
         String proSkill = scanner.nextLine();
-        Experience experience=new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill);
-        int index=experienceList.indexOf(experience);
-        if (index==-1){
+        Experience experience = new Experience(id, firstName, lastName, birthDate, address, phone, email, candidatesType, expInYear, proSkill);
+        int index = experienceList.indexOf(experience);
+        if (index == -1) {
             experienceList.add(experience);
-        }else {
-            experienceList.set(index,experience);
+        } else {
+            experienceList.set(index, experience);
         }
     }
 
@@ -117,5 +133,9 @@ public class Experienceimpl implements ExperienceService {
         for (Experience ele : experienceList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
+    }
+
+    public List<Experience> getExperienceList() {
+        return experienceList;
     }
 }

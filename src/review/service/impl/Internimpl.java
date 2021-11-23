@@ -29,7 +29,7 @@ public class Internimpl implements InternService {
             String firstName = scanner.nextLine();
             System.out.println("Enter lat name : ");
             String lastName = scanner.nextLine();
-            double birthDate = check.checkBirthDate();
+            int birthDate = check.checkBirthDate();
             System.out.println("Enter Address : ");
             String address = scanner.nextLine();
             System.out.println("Enter Phone : ");
@@ -66,7 +66,7 @@ public class Internimpl implements InternService {
         String firstName = scanner.nextLine();
         System.out.println("Enter lat name : ");
         String lastName = scanner.nextLine();
-        double birthDate = check.checkBirthDate();
+        int birthDate = check.checkBirthDate();
         System.out.println("Enter Address : ");
         String address = scanner.nextLine();
         System.out.println("Enter Phone : ");
@@ -124,5 +124,8 @@ public class Internimpl implements InternService {
         for (Intern ele : internList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
+    }
+    public List<Intern>getInternList(){
+        return internList;
     }
 }
