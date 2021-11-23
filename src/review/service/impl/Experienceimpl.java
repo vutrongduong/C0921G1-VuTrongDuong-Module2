@@ -1,5 +1,6 @@
 package review.service.impl;
 
+import review.model.Candidates;
 import review.model.Experience;
 import review.service.ExperienceService;
 import review.validate.Check;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Experienceimpl implements ExperienceService {
-    List<Experience> experienceList = new ArrayList<>();
+    List<Candidates> experienceList = new ArrayList<>();
 
 //    public Experienceimpl() {
 //        experienceList = new ArrayList<>();
@@ -60,7 +61,7 @@ public class Experienceimpl implements ExperienceService {
             System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
             if (choice.equals("N")) {
-                for (Experience ele : experienceList) {
+                for (Candidates ele : experienceList) {
                     System.out.println(ele);
                 }
                 break;
@@ -70,7 +71,7 @@ public class Experienceimpl implements ExperienceService {
 
     @Override
     public void update() {
-        for (Experience experience : experienceList) {
+        for (Candidates experience : experienceList) {
             System.out.println("Id:" + (experience.getId() + " - " + experience));
         }
         System.out.println("Enter id : ");
@@ -117,7 +118,7 @@ public class Experienceimpl implements ExperienceService {
 
     @Override
     public void seach(String name, int candidatesType) {
-        for (Experience ele : experienceList) {
+        for (Candidates ele : experienceList) {
             if ((ele.getCandidatesType() == candidatesType)) {
                 if (ele.getLastName().toLowerCase().contains(name)) {
                     System.out.println(ele.toString());
@@ -130,12 +131,12 @@ public class Experienceimpl implements ExperienceService {
 
     @Override
     public void disPLay() {
-        for (Experience ele : experienceList) {
+        for (Candidates ele : experienceList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
     }
 
-    public List<Experience> getExperienceList() {
+    public List<Candidates> getExperienceList() {
         return experienceList;
     }
 }

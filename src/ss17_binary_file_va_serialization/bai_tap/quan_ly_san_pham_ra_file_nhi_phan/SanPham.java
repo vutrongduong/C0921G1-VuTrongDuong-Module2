@@ -1,6 +1,8 @@
 package ss17_binary_file_va_serialization.bai_tap.quan_ly_san_pham_ra_file_nhi_phan;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
     private int ma;
     private String ten;
     private String hangSanXuat;

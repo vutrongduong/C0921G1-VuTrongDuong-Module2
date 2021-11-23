@@ -1,5 +1,6 @@
 package review.service.impl;
 
+import review.model.Candidates;
 import review.model.Fresher;
 import review.service.FresherService;
 import review.validate.Check;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Fresherimpl implements FresherService {
-    List<Fresher> fresherList = new ArrayList<>();
+    List<Candidates> fresherList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     Check check = new Check();
 
@@ -45,7 +46,7 @@ public class Fresherimpl implements FresherService {
             System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
             if (choice.equals("N")) {
-                for (Fresher ele : fresherList) {
+                for (Candidates ele : fresherList) {
                     System.out.println(ele);
                 }
                 break;
@@ -56,7 +57,7 @@ public class Fresherimpl implements FresherService {
 
     @Override
     public void update() {
-        for (Fresher fresher : fresherList) {
+        for (Candidates fresher : fresherList) {
             System.out.println("Id:" + (fresher.getId() + " - " + fresher));
         }
         System.out.println("Enter id : ");
@@ -106,7 +107,7 @@ public class Fresherimpl implements FresherService {
 
     @Override
     public void seach(String name, int candidatesType) {
-        for (Fresher ele : fresherList) {
+        for (Candidates ele : fresherList) {
             if ((ele.getCandidatesType() == candidatesType)) {
                 if (ele.getLastName().toLowerCase().contains(name)) {
                     System.out.println(ele.toString());
@@ -120,11 +121,12 @@ public class Fresherimpl implements FresherService {
 
     @Override
     public void disPLay() {
-        for (Fresher ele : fresherList) {
+        for (Candidates ele : fresherList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
     }
-    public List<Fresher>getFresherList(){
+
+    public List<Candidates> getFresherList() {
         return fresherList;
     }
 }

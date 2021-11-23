@@ -42,6 +42,8 @@ public class Controller {
                             case 3:
                                 experienceimpl.delete();
                                 break;
+                            default:
+                                break;
                         }
                     } while (choice1 != 4);
                     break;
@@ -63,6 +65,8 @@ public class Controller {
                             case 3:
                                 fresherimpl.delete();
                                 break;
+                            default:
+                                break;
                         }
                     } while (choice2 != 4);
                     break;
@@ -83,6 +87,8 @@ public class Controller {
                                 break;
                             case 3:
                                 internimpl.delete();
+                                break;
+                            default:
                                 break;
                         }
                     } while (choice3 != 4);

@@ -1,5 +1,6 @@
 package review.service.impl;
 
+import review.model.Candidates;
 import review.model.Intern;
 import review.service.InternService;
 import review.validate.Check;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Internimpl implements InternService {
-    List<Intern> internList = new ArrayList<>();
+    List<Candidates> internList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     Check check = new Check();
 
@@ -47,7 +48,7 @@ public class Internimpl implements InternService {
             System.out.println(" Do you want to continue (Y/N)?");
             String choice = scanner.nextLine();
             if (choice.equals("N")) {
-                for (Intern ele : internList) {
+                for (Candidates ele : internList) {
                     System.out.println(ele);
                 }
                 break;
@@ -57,7 +58,7 @@ public class Internimpl implements InternService {
 
     @Override
     public void update() {
-        for (Intern intern : internList) {
+        for (Candidates intern : internList) {
             System.out.println("Id:" + (intern.getId() + " - " + intern));
         }
         System.out.println("Enter id : ");
@@ -108,7 +109,7 @@ public class Internimpl implements InternService {
 
     @Override
     public void seach(String name, int candidatesType) {
-        for (Intern ele : internList) {
+        for (Candidates ele : internList) {
             if ((ele.getCandidatesType() == candidatesType)) {
                 if (ele.getLastName().toLowerCase().contains(name)) {
                     System.out.println(ele.toString());
@@ -121,11 +122,11 @@ public class Internimpl implements InternService {
 
     @Override
     public void disPLay() {
-        for (Intern ele : internList) {
+        for (Candidates ele : internList) {
             System.out.println(ele.getFirstName() + " " + ele.getLastName());
         }
     }
-    public List<Intern>getInternList(){
+    public List<Candidates>getInternList(){
         return internList;
     }
 }
