@@ -1,7 +1,5 @@
 package ss17_binary_file_va_serialization.bai_tap.copy_file_nhi_phan;
 
-import ss17_binary_file_va_serialization.bai_tap.quan_ly_san_pham_ra_file_nhi_phan.SanPham;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

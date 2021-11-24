@@ -8,10 +8,10 @@ public class Main {
         SanPhamService sanPhamService = new SanPhamService();
         int choice;
         while (true) {
-            System.out.println("1. add\n" +
-                    "2. display\n" +
-                    "3. search\n" +
-                    "4. exit");
+            System.out.println("1. Add\n" +
+                    "2. Display\n" +
+                    "3. Search\n" +
+                    "4. Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
