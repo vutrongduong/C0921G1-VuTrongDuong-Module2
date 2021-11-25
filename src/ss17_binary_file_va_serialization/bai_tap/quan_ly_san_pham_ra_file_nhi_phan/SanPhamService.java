@@ -33,7 +33,6 @@ public class SanPhamService {
         for (SanPham sanPham:sanPhamList) {
             System.out.println(sanPham);
         }
-
     }
     public void search(){
         sanPhamList=Write.readFile();
@@ -44,6 +43,5 @@ public class SanPhamService {
                 System.out.println(ele);
             }
         }
-
     }
 }
