@@ -16,14 +16,15 @@ public class CopyFile {
             fileInputStream = new FileInputStream(file);
             if (fileInputStream.available() != 0) {
                 objectInputStream = new ObjectInputStream(fileInputStream);
-                objectList = (List<Object>) objectInputStream.readObject();
+                System.out.println(objectInputStream);
+//                objectList = (List<Object>) objectInputStream.readObject();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
         } finally {
             try {
                 if (objectInputStream != null) {
