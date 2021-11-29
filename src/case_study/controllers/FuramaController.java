@@ -135,9 +135,4 @@ public class FuramaController {
 
         } while (choice != 6);
     }
-
-    public static void main(String[] args) {
-        FuramaController furamaController = new FuramaController();
-        furamaController.displayMainMenu();
-    }
 }

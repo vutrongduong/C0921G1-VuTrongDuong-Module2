@@ -1,6 +1,5 @@
 package case_study.services.impl;
 
-
 import case_study.models.Customer;
 import case_study.models.facility.Validate;
 import case_study.services.CustomerService;
