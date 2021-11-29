@@ -9,7 +9,7 @@ import java.util.*;
 
 public class BookingServicelmpl implements BookingService {
     static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
-    static final String path = "D:\\codegym\\FuramaResort\\src\\data\\booking.csv";
+    static final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\booking.csv";
     Scanner scanner = new Scanner(System.in);
 
     {

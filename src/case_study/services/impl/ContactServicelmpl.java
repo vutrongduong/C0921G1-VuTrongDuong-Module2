@@ -10,18 +10,18 @@ import java.util.*;
 
 public class ContactServicelmpl implements ContactService {
     Scanner scanner = new Scanner(System.in);
-    final String path = "D:\\codegym\\FuramaResort\\src\\data\\contract.csv";
+    final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\contract.csv";
     BookingServicelmpl bookingServicelmpl = new BookingServicelmpl();
-    Set<Contract> contractSet = new TreeSet<>();
+    List<Contract> contractList = new ArrayList<>();
     Queue<Booking> bookingQueue = new LinkedList<>();
 
     {
-        contractSet = convertRead();
+        contractList = convertRead();
     }
 
     @Override
     public void display() {
-        for (Contract contract : contractSet) {
+        for (Contract contract : contractList) {
             System.out.println(contract);
         }
     }
@@ -32,22 +32,24 @@ public class ContactServicelmpl implements ContactService {
         Booking booking = bookingQueue.poll();
         String codeBooking = booking.getCodeBooking();
         String codeCustomer = booking.getCodeCustomer();
-        System.out.println("Code booking" + codeBooking);
-        System.out.println("Code customer" + codeCustomer);
+        System.out.println("Code booking : " + codeBooking);
+        System.out.println("Code customer : " + codeCustomer);
         System.out.println("Enter number contract");
-        double numberContract = Double.parseDouble(scanner.nextLine());
-        Contract contract = new Contract();
-        contract.setNumberContract(numberContract);
-        while (!contractSet.contains(contract)) {
-            System.err.println("Constract  does exist");
-            numberContract = Double.parseDouble(scanner.nextLine());
-            contract.setNumberContract(numberContract);
-        }
+        int numberContract = Integer.parseInt(scanner.nextLine());
+//        Contract contract = new Contract();
+//        contract.setNumberContract(numberContract);
+//        while (!contractList.contains(contract)) {
+//            System.err.println("Constract  does exist");
+//            numberContract = Integer.parseInt(scanner.nextLine());
+//            contract.setNumberContract(numberContract);
+//        }
         System.out.println("Enter deposits ");
         double deposits = Double.parseDouble(scanner.nextLine());
+//        contract.setDeposits(deposits);
         System.out.println("Enter total payment");
         double totalPayment = Double.parseDouble(scanner.nextLine());
-        contractSet.add(new Contract(numberContract, codeBooking, deposits, totalPayment, codeCustomer));
+//        contract.setTotalPayment(totalPayment);
+        contractList.add(new Contract(numberContract, codeBooking, deposits, totalPayment, codeCustomer));
         FileCSV.writeFileCSV(convertWrite(), path);
     }
 
@@ -55,15 +57,15 @@ public class ContactServicelmpl implements ContactService {
     public void editConstracts() {
         display();
         System.out.println("Enter number contract want edit");
-        double numberConstract = Double.parseDouble(scanner.nextLine());
+        int numberConstract = Integer.parseInt(scanner.nextLine());
         Contract contract = new Contract();
         contract.setNumberContract(numberConstract);
-        while (!contractSet.contains(contract)) {
+        while (!contractList.contains(contract)) {
             System.err.println("Constract  does not exist");
-            numberConstract = Double.parseDouble(scanner.nextLine());
+            numberConstract = Integer.parseInt(scanner.nextLine());
             contract.setNumberContract(numberConstract);
         }
-        for (Contract contractEdit : contractSet) {
+        for (Contract contractEdit : contractList) {
             int choice = 0;
             System.out.println(contractEdit);
             while (choice != 6) {
@@ -79,10 +81,10 @@ public class ContactServicelmpl implements ContactService {
                 switch (choice) {
                     case 1:
                         System.out.println("Enter number contract");
-                        contractEdit.setNumberContract(Double.parseDouble(scanner.nextLine()));
-                        while (contractSet.contains(contractEdit)) {
+                        contractEdit.setNumberContract(Integer.parseInt(scanner.nextLine()));
+                        while (contractList.contains(contractEdit)) {
                             System.err.println("Contract already exists , re-enter number contract");
-                            contractEdit.setNumberContract(Double.parseDouble(scanner.nextLine()));
+                            contractEdit.setNumberContract(Integer.parseInt(scanner.nextLine()));
                         }
                         break;
                     case 2:
@@ -114,20 +116,25 @@ public class ContactServicelmpl implements ContactService {
     @Override
     public List<String> convertWrite() {
         List<String> stringList = new ArrayList<>();
-        for (Contract contract : contractSet) {
+        for (Contract contract : contractList) {
             stringList.add(contract.toString());
         }
         return stringList;
     }
 
     @Override
-    public Set<Contract> convertRead() {
+    public List<Contract> convertRead() {
         List<String> stringList = FileCSV.readFileCSV(path);
         String[] arr;
         for (String line : stringList) {
             arr = line.split(",");
-            contractSet.add(new Contract(Double.parseDouble(arr[0]), arr[1], Double.parseDouble(arr[2]), Double.parseDouble(arr[3]), arr[4]));
+            contractList.add(new Contract(Integer.parseInt(arr[0]), arr[1], Double.parseDouble(arr[2]), Double.parseDouble(arr[3]), arr[4]));
         }
-        return contractSet;
+        return contractList;
     }
+
+//    public static void main(String[] args) {
+//        ContactServicelmpl contactServicelmpl = new ContactServicelmpl();
+//        contactServicelmpl.convertRead();
+//    }
 }

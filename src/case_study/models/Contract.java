@@ -1,9 +1,7 @@
 package case_study.models;
 
-import java.util.Objects;
-
 public class Contract {
-    private double numberContract;
+    private int numberContract;
     private String codeBooking;
     private double deposits;
     private double totalPayment;
@@ -12,7 +10,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(double numberContract, String codeBooking, double deposits, double totalPayment, String codeCustomer) {
+    public Contract(int numberContract, String codeBooking, double deposits, double totalPayment, String codeCustomer) {
         this.numberContract = numberContract;
         this.codeBooking = codeBooking;
         this.deposits = deposits;
@@ -20,11 +18,11 @@ public class Contract {
         this.codeCustomer = codeCustomer;
     }
 
-    public double getNumberContract() {
+    public int getNumberContract() {
         return numberContract;
     }
 
-    public void setNumberContract(double numberContract) {
+    public void setNumberContract(int numberContract) {
         this.numberContract = numberContract;
     }
 
@@ -65,16 +63,16 @@ public class Contract {
         return numberContract + "," + codeBooking + "," + deposits + "," + totalPayment + "," + codeCustomer;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Contract contract = (Contract) o;
-        return Double.compare(contract.numberContract, numberContract) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(numberContract);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Contract contract = (Contract) o;
+//        return numberContract == contract.numberContract;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(numberContract);
+//    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    static final String path = "D:\\codegym\\FuramaResort\\src\\data\\employee.csv";
+    static final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\employee.csv";
     public List<Employee> employeeList = new ArrayList<>();
     Validate validate = new Validate();
 

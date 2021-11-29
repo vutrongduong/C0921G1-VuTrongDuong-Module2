@@ -3,10 +3,10 @@ package case_study.services;
 
 import case_study.models.Contract;
 
-import java.util.Set;
+import java.util.List;
 
 public interface ContactService extends Service {
     void editConstracts();
 
-    Set<Contract> convertRead();
+    List<Contract> convertRead();
 }

@@ -3,13 +3,12 @@ package case_study.services.impl;
 
 import case_study.models.Booking;
 
-import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
-public class BookingComparator implements Comparator<Booking>, Serializable {
+public class BookingComparator implements Comparator<Booking> {
     @Override
     public int compare(Booking o1, Booking o2) {
         if (o1.getDayStart().equals(o2.getDayStart())) {

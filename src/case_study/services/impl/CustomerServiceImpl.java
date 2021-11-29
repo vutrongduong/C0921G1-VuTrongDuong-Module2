@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    static final String path = "D:\\codegym\\FuramaResort\\src\\data\\customer.csv";
+    static final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\customer.csv";
     static List<Customer> customerList = new LinkedList<>();
     Validate validate = new Validate();
     Scanner scanner = new Scanner(System.in);

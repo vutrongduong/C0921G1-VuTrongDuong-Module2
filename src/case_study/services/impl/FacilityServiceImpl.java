@@ -12,9 +12,9 @@ public class FacilityServiceImpl implements FacilityService {
     Scanner scanner = new Scanner(System.in);
     Validate validate = new Validate();
     static LinkedHashMap<Facility, Integer> facilityMap = new LinkedHashMap<>();
-    static final String pathHouse = "D:\\codegym\\FuramaResort\\src\\data\\house.csv";
-    static final String pathRoom = "D:\\codegym\\FuramaResort\\src\\data\\room.csv";
-    static final String pathVilla = "D:\\codegym\\FuramaResort\\src\\data\\villa.csv";
+    static final String pathHouse = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\house.csv";
+    static final String pathRoom = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\room.csv";
+    static final String pathVilla = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\villa.csv";
 
 
     {
