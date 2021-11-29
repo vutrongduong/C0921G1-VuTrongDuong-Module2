@@ -11,6 +11,5 @@ FactoryPatternDemo {
         shape2.draw();
         Shape shape3 = ShapeFactory.getShape("demo");
         shape3.draw();
-
     }
 }
