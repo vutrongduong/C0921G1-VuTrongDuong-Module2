@@ -104,24 +104,23 @@ public class FacilityServiceImpl implements FacilityService {
         List<String> stringListVilla = new ArrayList<>();
         for (Facility key : facilityMap.keySet()) {
             if (key instanceof House) {
-                stringListHouse.add(key.toString());
+                stringListHouse.add(key.toString() + "," + facilityMap.get(key));
             } else if (key instanceof Room) {
-                stringListRoom.add(key.toString());
+                stringListRoom.add(key.toString() + "," + facilityMap.get(key));
             } else {
-                stringListVilla.add(key.toString());
+                stringListVilla.add(key.toString() + "," + facilityMap.get(key));
             }
         }
         if (facility instanceof House) {
             return stringListHouse;
         } else if (facility instanceof Room) {
             return stringListRoom;
-        } else if (facility instanceof Villa) {
+        } else {
             return stringListVilla;
         }
-        return stringListHouse;
     }
 
-
+    @Override
     public LinkedHashMap<Facility, Integer> convertRead() {
         List<String> stringListHouse = FileCSV.readFileCSV(pathHouse);
         List<String> stringListRoom = FileCSV.readFileCSV(pathRoom);
@@ -129,15 +128,15 @@ public class FacilityServiceImpl implements FacilityService {
         String[] arr;
         for (String line : stringListHouse) {
             arr = line.split(",");
-            facilityMap.put(new House(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5], Integer.parseInt(arr[6])), 0);
+            facilityMap.put(new House(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5], Integer.parseInt(arr[6])), Integer.parseInt(arr[7]));
         }
         for (String line : stringListRoom) {
             arr = line.split(",");
-            facilityMap.put(new Room(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5]), 0);
+            facilityMap.put(new Room(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5]), Integer.parseInt(arr[6]));
         }
         for (String line : stringListVila) {
             arr = line.split(",");
-            facilityMap.put(new Villa(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5], Double.parseDouble(arr[6]), Integer.parseInt(arr[7])), 0);
+            facilityMap.put(new Villa(arr[0], Double.parseDouble(arr[1]), Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4], arr[5], Double.parseDouble(arr[6]), Integer.parseInt(arr[7])), Integer.parseInt(arr[8]));
         }
         return facilityMap;
     }
@@ -165,11 +164,6 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println(key + " : " + facilityMapMonth.get(key) + " lần");
         }
     }
-
-//    public static void main(String[] args) {
-//        FacilityServiceImpl facilityService = new FacilityServiceImpl();
-//        facilityService.displayFacilityMaintenance();
-//    }
 }
 
 

@@ -1,6 +1,7 @@
 package case_study.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Booking implements Serializable {
     private String codeBooking;
@@ -73,5 +74,18 @@ public class Booking implements Serializable {
     @Override
     public String toString() {
         return codeBooking + "," + dayStart + "," + dayEnd + "," + codeCustomer + "," + nameService + "," + typeOfService;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(codeBooking, booking.codeBooking);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codeBooking);
     }
 }

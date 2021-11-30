@@ -10,7 +10,6 @@ public class FuramaController {
     CustomerService customerService = new CustomerServiceImpl();
     FacilityService facilityService = new FacilityServiceImpl();
     BookingService bookingService = new BookingServicelmpl();
-    ContactService contactService = new ContactServicelmpl();
 
     public void displayMainMenu() {
         int choice;
@@ -105,13 +104,13 @@ public class FuramaController {
                                 bookingService.display();
                                 break;
                             case 3:
-                                contactService.add();
+                                bookingService.addContact();
                                 break;
                             case 4:
-                                contactService.display();
+                                bookingService.displayContact();
                                 break;
                             case 5:
-                                contactService.editConstracts();
+                                bookingService.editConstracts();
                                 break;
                             case 6:
                                 break;

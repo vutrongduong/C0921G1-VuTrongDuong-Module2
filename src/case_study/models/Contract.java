@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Contract {
     private int numberContract;
     private String codeBooking;
-    private double deposits;
-    private double totalPayment;
+    private int deposits;
+    private int totalPayment;
     private String codeCustomer;
 
     public Contract() {
     }
 
-    public Contract(int numberContract, String codeBooking, double deposits, double totalPayment, String codeCustomer) {
+    public Contract(int numberContract, String codeBooking, int deposits, int totalPayment, String codeCustomer) {
         this.numberContract = numberContract;
         this.codeBooking = codeBooking;
         this.deposits = deposits;
@@ -36,19 +36,19 @@ public class Contract {
         this.codeBooking = codeBooking;
     }
 
-    public double getDeposits() {
+    public int getDeposits() {
         return deposits;
     }
 
-    public void setDeposits(double deposits) {
+    public void setDeposits(int deposits) {
         this.deposits = deposits;
     }
 
-    public double getTotalPayment() {
+    public int getTotalPayment() {
         return totalPayment;
     }
 
-    public void setTotalPayment(double totalPayment) {
+    public void setTotalPayment(int totalPayment) {
         this.totalPayment = totalPayment;
     }
 

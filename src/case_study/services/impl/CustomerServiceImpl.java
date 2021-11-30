@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
     static final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\customer.csv";
-    static List<Customer> customerList = new LinkedList<>();
-    Validate validate = new Validate();
+    private List<Customer> customerList = new LinkedList<>();
+    private Validate validate = new Validate();
     Scanner scanner = new Scanner(System.in);
 
-    static {
+    {
         customerList = convertRead();
     }
 
@@ -149,7 +149,8 @@ public class CustomerServiceImpl implements CustomerService {
         return stringList;
     }
 
-    public static List<Customer> convertRead() {
+    @Override
+    public List<Customer> convertRead() {
         List<String> stringList = FileCSV.readFileCSV(path);
         String[] arr;
         for (String line : stringList) {
