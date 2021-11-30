@@ -10,6 +10,7 @@ public class FuramaController {
     CustomerService customerService = new CustomerServiceImpl();
     FacilityService facilityService = new FacilityServiceImpl();
     BookingService bookingService = new BookingServicelmpl();
+    PromotionServiceImpl promotionService = new PromotionServiceImpl();
 
     public void displayMainMenu() {
         int choice;
@@ -126,12 +127,18 @@ public class FuramaController {
                                 "2.\tDisplay list customers get voucher\n" +
                                 "3.\tReturn main menu\n");
                         choice1 = Integer.parseInt(scanner.nextLine());
-
+                        switch (choice1) {
+                            case 1:
+                                promotionService.displayListCustomer();
+                                break;
+                            case 2:
+                                promotionService.getVoucher();
+                                break;
+                        }
                     } while (choice1 != 3);
                 case 6:
                     break;
             }
-
         } while (choice != 6);
     }
 }

@@ -40,8 +40,8 @@ public class PromotionServiceImpl {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
                 int index = customerList.indexOf(customer);
-                if (index!=-1){
-                    System.out.println(customerList.get(index) +" : voucher 10%");
+                if (index != -1) {
+                    System.out.println(customerList.get(index) + " : voucher 10%");
                 }
             }
         }
@@ -49,8 +49,8 @@ public class PromotionServiceImpl {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
                 int index = customerList.indexOf(customer);
-                if (index!=-1){
-                    System.out.println(customerList.get(index)+" : voucher 20%");
+                if (index != -1) {
+                    System.out.println(customerList.get(index) + " : voucher 20%");
                 }
             }
         }
@@ -58,12 +58,13 @@ public class PromotionServiceImpl {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
                 int index = customerList.indexOf(customer);
-                if (index!=-1){
-                    System.out.println(customerList.get(index)+" : voucher 50%");
+                if (index != -1) {
+                    System.out.println(customerList.get(index) + " : voucher 50%");
                 }
             }
         }
     }
+
     public static void main(String[] args) {
         PromotionServiceImpl promotionService = new PromotionServiceImpl();
         promotionService.getVoucher();

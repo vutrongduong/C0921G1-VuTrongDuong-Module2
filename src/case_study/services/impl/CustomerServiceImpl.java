@@ -20,7 +20,6 @@ public class CustomerServiceImpl implements CustomerService {
         customerList = convertRead();
     }
 
-
     @Override
     public void display() {
         for (Customer customer : customerList) {
