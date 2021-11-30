@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class ObserverDemo {
     public static void main(String[] args) {
         Subject sub = new Subject();
-        // Client configures the number and type of Observers
         new HexObserver(sub);
         new OctObserver(sub);
         new BinObserver(sub);

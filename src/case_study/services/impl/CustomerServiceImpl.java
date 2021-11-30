@@ -1,7 +1,7 @@
 package case_study.services.impl;
 
 import case_study.models.Customer;
-import case_study.models.facility.Validate;
+import case_study.validate.Validate;
 import case_study.services.CustomerService;
 import case_study.utils.FileCSV;
 
@@ -23,34 +23,34 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void display() {
         for (Customer customer : customerList) {
-            System.out.println(customer);
+            System.out.print(customer);
         }
     }
 
     @Override
     public void add() {
-        System.out.println("Enter Code ");
+        System.out.print("Enter Code ");
         String code = scanner.nextLine();
         Customer customer = new Customer();
         customer.setCode(code);
         while (!customerList.contains(customer)) {
-            System.err.println("Customer does exist");
+            System.err.print("Customer does exist");
             code = scanner.nextLine();
             customer.setCode(code);
         }
-        System.out.println("Enter Name ");
+        System.out.print("Enter Name ");
         String name = scanner.nextLine();
-        System.out.println("Enter birth date ");
-        String birthDate = scanner.nextLine();
-        System.out.println("Enter Gender ");
+        System.out.print("Enter birth date ");
+        String birthDate = validate.checkDay(scanner.nextLine());
+        System.out.print("Enter Gender ");
         String gender = scanner.nextLine();
-        System.out.println("Enter Id Number ");
-        int idNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter Phone ");
+        System.out.print("Enter Id Number ");
+        int idNumber = validate.checkNumber(scanner.nextLine());
+        System.out.print("Enter Phone ");
         String phone = scanner.nextLine();
         String email = validate.email();
         String customerType = validate.customerType();
-        System.out.println("Enter Address");
+        System.out.print("Enter Address");
         String address = scanner.nextLine();
         customerList.add(new Customer(code, name, birthDate, gender, idNumber, phone, email, customerType, address));
         FileCSV.writeFileCSV(convertWrite(), path);
@@ -59,12 +59,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void edit() {
         display();
-        System.out.println("Enter the code the customer wants edit ");
+        System.out.print("Enter the code the customer wants edit ");
         String codeEdit = scanner.nextLine();
         Customer customer = new Customer();
         customer.setCode(codeEdit);
         while (!customerList.contains(customer)) {
-            System.err.println("Customer does not exist");
+            System.err.print("Customer does not exist");
             codeEdit = scanner.nextLine();
             customer.setCode(codeEdit);
         }
@@ -72,9 +72,9 @@ public class CustomerServiceImpl implements CustomerService {
             if (customerEdit.getCode().equals(codeEdit)) {
                 int choice = 0;
                 while (choice != 10) {
-                    System.out.println("===================================");
-                    System.out.println(customerEdit);
-                    System.out.println("1.\tEdit code customer\n" +
+                    System.out.print("===================================");
+                    System.out.print(customerEdit);
+                    System.out.print("1.\tEdit code customer\n" +
                             "2.\tEdit name \n" +
                             "3.\tEdit birth date \n" +
                             "4.\tEdit gender \n" +
@@ -84,53 +84,53 @@ public class CustomerServiceImpl implements CustomerService {
                             "8.\tEdit Customer Type \n" +
                             "9.\tEdit address\n" +
                             "10.\tReturn main menu\n");
-                    choice = Integer.parseInt(scanner.nextLine());
+                    choice = validate.checkNumber(scanner.nextLine());
                     switch (choice) {
                         case 1:
-                            System.out.println("Enter code customer");
+                            System.out.print("Enter code customer");
                             String code = scanner.nextLine();
                             customerEdit.setCode(code);
                             while (customerList.contains(customerEdit)) {
-                                System.err.println("Customer does not exist");
+                                System.err.print("Customer does not exist");
                                 customerEdit.setCode(scanner.nextLine());
                             }
                             break;
                         case 2:
-                            System.out.println("Enter name");
+                            System.out.print("Enter name");
                             customerEdit.setName(scanner.nextLine());
                             break;
                         case 3:
-                            System.out.println("Enter birthdate");
-                            customerEdit.setBirthDate(scanner.nextLine());
+                            System.out.print("Enter birthdate");
+                            customerEdit.setBirthDate(validate.checkDay(scanner.nextLine()));
                             break;
                         case 4:
-                            System.out.println("Enter gender ");
+                            System.out.print("Enter gender ");
                             customerEdit.setGender(scanner.nextLine());
                             break;
                         case 5:
-                            System.out.println("Enter idNumber");
-                            customerEdit.setIdNumber(Integer.parseInt(scanner.nextLine()));
+                            System.out.print("Enter idNumber");
+                            customerEdit.setIdNumber(validate.checkNumber(scanner.nextLine()));
                             break;
                         case 6:
-                            System.out.println("Enter phone");
+                            System.out.print("Enter phone");
                             customerEdit.setPhone(scanner.nextLine());
                             break;
                         case 7:
-                            System.out.println("Enter email");
+                            System.out.print("Enter email");
                             customerEdit.setEmail(validate.email());
                             break;
                         case 8:
-                            System.out.println("Enter Customer Type");
+                            System.out.print("Enter Customer Type");
                             customerEdit.setLoaiKhach(validate.customerType());
                             break;
                         case 9:
-                            System.out.println("Enter address");
+                            System.out.print("Enter address");
                             customerEdit.setAddress(scanner.nextLine());
                             break;
                         case 10:
                             break;
                         default:
-                            System.out.println("Enter number 1 to 10, re-enter");
+                            System.out.print("Enter number 1 to 10, re-enter");
                     }
                 }
             }

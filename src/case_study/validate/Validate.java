@@ -1,4 +1,4 @@
-package case_study.models.facility;
+package case_study.validate;
 
 
 import java.util.ArrayList;
@@ -24,10 +24,10 @@ public class Validate {
         return code;
     }
 
-    public static void main(String[] args) {
-        Validate validate = new Validate();
-        validate.customerType();
-    }
+//    public static void main(String[] args) {
+//        Validate validate = new Validate();
+//        validate.customerType();
+//    }
 
     public String name() {
         String regex = "^([A-Z]\\w+)*$";
@@ -195,6 +195,26 @@ public class Validate {
         }
         return customerType;
     }
+
+    public int checkNumber(String number) {
+        String regex = "^\\d+$";
+        while (!number.matches(regex)) {
+            System.err.println("Invalid data , please re-enter ");
+            number = scanner.nextLine();
+        }
+        return Integer.parseInt(number);
+    }
+
+    public String checkDay(String day) {
+        String regex = "^\\d{2}/\\d{2}/\\d{4}";
+        while (!day.matches(regex)) {
+            System.err.println("Invalid data, please re-enter by fomrmat in : dd/MM/yyyy ");
+            day=scanner.nextLine();
+        }
+        return day;
+    }
+
+
 }
 
 

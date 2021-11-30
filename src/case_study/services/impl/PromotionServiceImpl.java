@@ -3,6 +3,7 @@ package case_study.services.impl;
 
 import case_study.models.Booking;
 import case_study.models.Customer;
+import case_study.validate.Validate;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import java.util.Stack;
 
 public class PromotionServiceImpl {
     Scanner scanner = new Scanner(System.in);
+    Validate validate =new Validate();
     BookingServicelmpl bookingServicelmpl = new BookingServicelmpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     List<Customer> customerList = customerService.convertRead();
@@ -17,7 +19,7 @@ public class PromotionServiceImpl {
 
     public void displayListCustomer() {
         System.out.println("Enter the service year : ");
-        int year = scanner.nextInt();
+        int year = Integer.parseInt(scanner.nextLine());
         for (Booking booking : bookingServicelmpl.bookingSet()) {
             String[] arrStart = booking.getDayStart().split("/");
             String[] arrEnd = booking.getDayEnd().split("/");
@@ -31,11 +33,11 @@ public class PromotionServiceImpl {
         Stack<Booking> bookingStack = new Stack<>();
         bookingStack.addAll(bookingServicelmpl.getBookingMonth());
         System.out.println("Enter the number of voucher 10%");
-        int voucher10 = scanner.nextInt();
+        int voucher10 = validate.checkNumber(scanner.nextLine());
         System.out.println("Enter the number of voucher 20%");
-        int voucher20 = scanner.nextInt();
+        int voucher20 =validate.checkNumber(scanner.nextLine());
         System.out.println("Enter the number of voucher 50%");
-        int voucher50 = scanner.nextInt();
+        int voucher50 = validate.checkNumber(scanner.nextLine());
         for (int i = 0; i < voucher10; i++) {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
@@ -65,9 +67,9 @@ public class PromotionServiceImpl {
         }
     }
 
-    public static void main(String[] args) {
-        PromotionServiceImpl promotionService = new PromotionServiceImpl();
-        promotionService.getVoucher();
-    }
+//    public static void main(String[] args) {
+//        PromotionServiceImpl promotionService = new PromotionServiceImpl();
+//        promotionService.getVoucher();
+//    }
 }
 
