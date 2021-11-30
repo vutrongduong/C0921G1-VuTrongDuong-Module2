@@ -1,5 +1,7 @@
 package case_study.models;
 
+import java.util.Objects;
+
 public class Contract {
     private int numberContract;
     private String codeBooking;
@@ -63,16 +65,16 @@ public class Contract {
         return numberContract + "," + codeBooking + "," + deposits + "," + totalPayment + "," + codeCustomer;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Contract contract = (Contract) o;
-//        return numberContract == contract.numberContract;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(numberContract);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contract contract = (Contract) o;
+        return numberContract == contract.numberContract;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numberContract);
+    }
 }

@@ -64,10 +64,6 @@ public class BookingServicelmpl implements BookingService {
         return stringList;
     }
 
-//    public Set<Booking> bookingList() {
-//        return bookingSet;
-//    }
-
     public Set<Booking> getBookingMonth() {
         Calendar cal = Calendar.getInstance();
         String month = Integer.toString(cal.get(Calendar.MONTH) + 1);
@@ -83,10 +79,12 @@ public class BookingServicelmpl implements BookingService {
         return bookingMonth;
     }
 
-//    public static void main(String[] args) {
-//        BookingServicelmpl bookingService = new BookingServicelmpl();
-//        System.out.println(bookingService.getBookingMonth());
-//    }
+    public static void main(String[] args) {
+        BookingServicelmpl bookingService = new BookingServicelmpl();
+       for (Booking booking:bookingService.getBookingMonth()){
+           System.out.println(booking);
+       }
+    }
 }
 
 

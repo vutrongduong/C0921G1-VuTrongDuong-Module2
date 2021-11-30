@@ -29,26 +29,26 @@ public class ContactServicelmpl implements ContactService {
     @Override
     public void add() {
         bookingQueue.addAll(bookingServicelmpl.bookingSet);
+        // chuyển danh sách booking được sắp xếp theo ngày vào hàng đợi
         Booking booking = bookingQueue.poll();
+        // lấy được booking sớm nhất
         String codeBooking = booking.getCodeBooking();
         String codeCustomer = booking.getCodeCustomer();
         System.out.println("Code booking : " + codeBooking);
         System.out.println("Code customer : " + codeCustomer);
-        System.out.println("Enter number contract");
+        System.out.println("Enter number contact");
         int numberContract = Integer.parseInt(scanner.nextLine());
-//        Contract contract = new Contract();
-//        contract.setNumberContract(numberContract);
-//        while (!contractList.contains(contract)) {
-//            System.err.println("Constract  does exist");
-//            numberContract = Integer.parseInt(scanner.nextLine());
-//            contract.setNumberContract(numberContract);
-//        }
+        Contract contract = new Contract();
+        contract.setNumberContract(numberContract);
+        while (contractList.contains(contract)) {
+            System.err.println("Contact does exist");
+            numberContract = Integer.parseInt(scanner.nextLine());
+            contract.setNumberContract(numberContract);
+        }
         System.out.println("Enter deposits ");
         double deposits = Double.parseDouble(scanner.nextLine());
-//        contract.setDeposits(deposits);
         System.out.println("Enter total payment");
         double totalPayment = Double.parseDouble(scanner.nextLine());
-//        contract.setTotalPayment(totalPayment);
         contractList.add(new Contract(numberContract, codeBooking, deposits, totalPayment, codeCustomer));
         FileCSV.writeFileCSV(convertWrite(), path);
     }
@@ -56,21 +56,21 @@ public class ContactServicelmpl implements ContactService {
     @Override
     public void editConstracts() {
         display();
-        System.out.println("Enter number contract want edit");
+        System.out.println("Enter number contact want edit");
         int numberConstract = Integer.parseInt(scanner.nextLine());
         Contract contract = new Contract();
         contract.setNumberContract(numberConstract);
         while (!contractList.contains(contract)) {
-            System.err.println("Constract  does not exist");
+            System.err.println("Contact  does not exist");
             numberConstract = Integer.parseInt(scanner.nextLine());
             contract.setNumberContract(numberConstract);
-        }
+        }//chỉ cho edit hợp đồng đã tồn tại
         for (Contract contractEdit : contractList) {
             int choice = 0;
             System.out.println(contractEdit);
             while (choice != 6) {
                 System.out.println("===================================");
-                System.out.println("1.\tEdit number contract\n" +
+                System.out.println("1.\tEdit number contact\n" +
                         "2.\tEdit Edit code booking\n" +
                         "3.\tEdit code customer\n" +
                         "4.\tEdit depostis \n" +
@@ -132,9 +132,4 @@ public class ContactServicelmpl implements ContactService {
         }
         return contractList;
     }
-
-//    public static void main(String[] args) {
-//        ContactServicelmpl contactServicelmpl = new ContactServicelmpl();
-//        contactServicelmpl.convertRead();
-//    }
 }

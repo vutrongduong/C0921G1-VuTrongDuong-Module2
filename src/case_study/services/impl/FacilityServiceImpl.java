@@ -107,15 +107,15 @@ public class FacilityServiceImpl implements FacilityService {
                 stringListHouse.add(key.toString());
             } else if (key instanceof Room) {
                 stringListRoom.add(key.toString());
-            } else{
+            } else {
                 stringListVilla.add(key.toString());
             }
         }
-        if (facility instanceof House){
+        if (facility instanceof House) {
             return stringListHouse;
-        }else if(facility instanceof Room){
+        } else if (facility instanceof Room) {
             return stringListRoom;
-        }else if(facility instanceof Villa){
+        } else if (facility instanceof Villa) {
             return stringListVilla;
         }
         return stringListHouse;
@@ -145,15 +145,17 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void displayFacilityMaintenance() {
         BookingServicelmpl bookingServicelmpl = new BookingServicelmpl();
-        Set<Booking> bookingMonth = bookingServicelmpl.getBookingMonth();
+        Set<Booking> bookingMonth = bookingServicelmpl.getBookingMonth();//lấy được booking trong tháng
         LinkedHashMap<Facility, Integer> facilityMapMonth = new LinkedHashMap<>();
-        for (Facility key : facilityMap.keySet()) {
-            for (Booking booking : bookingMonth) {
-                if (booking.getNameService().equals(key.getCodeService())) {
+        for (Booking booking : bookingMonth) {
+            for (Facility key : facilityMap.keySet()) {
+                if (key.getCodeService().equals(booking.getNameService())) {
                     if (!facilityMapMonth.containsKey(key)) {
                         facilityMapMonth.put(key, 1);
+                        // kiểm tra không trùng thì tạo 1 key mới
                     } else {
                         facilityMapMonth.replace(key, facilityMapMonth.get(key) + 1);
+                        //kiểm tra trùng với mã dịch vụ thì số value tăng lên 1
                     }
                 }
             }
@@ -164,10 +166,10 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 
-    public static void main(String[] args) {
-        FacilityServiceImpl facilityService = new FacilityServiceImpl();
-        facilityService.convertRead();
-    }
+//    public static void main(String[] args) {
+//        FacilityServiceImpl facilityService = new FacilityServiceImpl();
+//        facilityService.displayFacilityMaintenance();
+//    }
 }
 
 
