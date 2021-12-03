@@ -1,14 +1,13 @@
-package case_study.utils;
+package demo;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FileCSV {
-    private FileCSV() {
-    }
-
+public class FileCsv {
     static public List<String> readFileCSV(String path) {
-        File file =new File(path);
+
+        File file = new File(path);
         List<String> stringList = new ArrayList<>();
         BufferedReader bufferedReader = null;
         try {

@@ -11,7 +11,6 @@ import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     Scanner scanner = new Scanner(System.in);
-    Validate validate = new Validate();
     static LinkedHashMap<Facility, Integer> facilityMap = new LinkedHashMap<>();
     static final String pathHouse = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\house.csv";
     static final String pathRoom = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\room.csv";
@@ -41,13 +40,13 @@ public class FacilityServiceImpl implements FacilityService {
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    String codeHouse = validate.code();
-                    double area = validate.area();
-                    int expense = validate.expense();
-                    int numbeOfPeople = validate.numbeOfPeople();
-                    String rentStyle = validate.rentStyle();
-                    String roomStandard = validate.roomStandard();
-                    int numberOfFloors = validate.numberOfFloors();
+                    String codeHouse = Validate.code();
+                    double area = Validate.area();
+                    int expense = Validate.expense();
+                    int numbeOfPeople = Validate.numbeOfPeople();
+                    String rentStyle = Validate.rentStyle();
+                    String roomStandard = Validate.roomStandard();
+                    int numberOfFloors = Validate.numberOfFloors();
                     House house = new House(codeHouse, area, expense, numbeOfPeople, rentStyle, roomStandard, numberOfFloors);
                     if (!facilityMap.containsKey(house)) {
                         facilityMap.put(house, 0);
@@ -57,11 +56,11 @@ public class FacilityServiceImpl implements FacilityService {
                     FileCSV.writeFileCSV(convertWriteFalicity(house), pathHouse);
                     break;
                 case 2:
-                    String codeRoom = validate.code();
-                    double areaRoom = validate.area();
-                    int expenseRoom = validate.expense();
-                    int numbeOfPeopleRoom = validate.numbeOfPeople();
-                    String rentStyleRoom = validate.rentStyle();
+                    String codeRoom = Validate.code();
+                    double areaRoom = Validate.area();
+                    int expenseRoom = Validate.expense();
+                    int numbeOfPeopleRoom = Validate.numbeOfPeople();
+                    String rentStyleRoom = Validate.rentStyle();
                     System.out.println("Enter Accompanying Service ");
                     String accompanyingService = scanner.nextLine();
                     Room room = new Room(codeRoom, areaRoom, expenseRoom, numbeOfPeopleRoom, rentStyleRoom, accompanyingService);
@@ -73,14 +72,14 @@ public class FacilityServiceImpl implements FacilityService {
                     FileCSV.writeFileCSV(convertWriteFalicity(room), pathRoom);
                     break;
                 case 3:
-                    String codeVilla = validate.code();
-                    double areaVilla = validate.area();
-                    int expenseVilla = validate.expense();
-                    int numbeOfPeopleVilla = validate.numbeOfPeople();
-                    String rentStyleVilla = validate.rentStyle();
-                    String roomStandardVilla = validate.roomStandard();
-                    double areaPool = validate.areaPool();
-                    int numberOfFloorsVilla = validate.numberOfFloors();
+                    String codeVilla = Validate.code();
+                    double areaVilla = Validate.area();
+                    int expenseVilla = Validate.expense();
+                    int numbeOfPeopleVilla = Validate.numbeOfPeople();
+                    String rentStyleVilla = Validate.rentStyle();
+                    String roomStandardVilla = Validate.roomStandard();
+                    double areaPool = Validate.areaPool();
+                    int numberOfFloorsVilla = Validate.numberOfFloors();
                     Villa villa = new Villa(codeVilla, areaVilla, expenseVilla, numbeOfPeopleVilla, rentStyleVilla, roomStandardVilla, areaPool, numberOfFloorsVilla);
                     if (!facilityMap.containsKey(villa)) {
                         facilityMap.put(villa, 0);
@@ -90,14 +89,9 @@ public class FacilityServiceImpl implements FacilityService {
                     FileCSV.writeFileCSV(convertWriteFalicity(villa), pathVilla);
                     break;
             }
-
         } while (choice != 4);
     }
 
-    @Override
-    public List<String> convertWrite() {
-        return null;
-    }
 
     public List<String> convertWriteFalicity(Facility facility) {
         List<String> stringListHouse = new ArrayList<>();
@@ -164,6 +158,9 @@ public class FacilityServiceImpl implements FacilityService {
         for (Facility key : facilityMapMonth.keySet()) {
             System.out.println(key + " : " + facilityMapMonth.get(key) + " lần");
         }
+    }
+    public Map<Facility,Integer>facilityList(){
+        return facilityMap;
     }
 }
 

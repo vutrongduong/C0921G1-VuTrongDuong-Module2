@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Validate {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
-    public String code() {
+    private Validate() {
+    }
+
+    public static String code() {
         String regex = "^(SV)(VL|HO|RO)-(\\d{4}$)";
         System.out.println("Enter code service ");
         String code = scanner.nextLine();
@@ -24,12 +27,7 @@ public class Validate {
         return code;
     }
 
-//    public static void main(String[] args) {
-//        Validate validate = new Validate();
-//        validate.customerType();
-//    }
-
-    public String name() {
+    public static String name() {
         String regex = "^([A-Z]\\w+)*$";
         System.out.println("Enter Area ");
         String name = scanner.nextLine();
@@ -41,7 +39,7 @@ public class Validate {
         return name;
     }
 
-    public double area() {
+    public static double area() {
         String regex = "^[3-9]\\d{1,}$";
         System.out.println("Enter area service ");
         String area = scanner.nextLine();
@@ -53,7 +51,7 @@ public class Validate {
         return Double.parseDouble(area);
     }
 
-    public int expense() {
+    public static int expense() {
         String regex = "^\\d+$";
         System.out.println("Enter expense service ");
         String area = scanner.nextLine();
@@ -65,7 +63,7 @@ public class Validate {
         return Integer.parseInt(area);
     }
 
-    public int numbeOfPeople() {
+    public static int numbeOfPeople() {
         while (true) {
             try {
                 System.out.println("Enter number of people ");
@@ -81,7 +79,7 @@ public class Validate {
         }
     }
 
-    public int numberOfFloors() {
+    public static int numberOfFloors() {
         String regex = "^\\d+$";
         System.out.println("Enter number of floors ");
         String numberOfFloors = scanner.nextLine();
@@ -93,7 +91,7 @@ public class Validate {
         return Integer.parseInt(numberOfFloors);
     }
 
-    public String rentStyle() {
+    public static String rentStyle() {
         String regex = "^([A-Z]\\w+)*$";
         System.out.println("Enter rent style ");
         String rentStyle = scanner.nextLine();
@@ -105,7 +103,7 @@ public class Validate {
         return rentStyle;
     }
 
-    public String roomStandard() {
+    public static String roomStandard() {
         String regex = "^([A-Z]\\w+)*$";
         System.out.println("Enter room stacdard ");
         String roomStandard = scanner.nextLine();
@@ -117,7 +115,7 @@ public class Validate {
         return roomStandard;
     }
 
-    public double areaPool() {
+    public static double areaPool() {
         String regex = "^[3-9]\\d{1,}$";
         System.out.println("Enter the pool area ");
         String area = scanner.nextLine();
@@ -129,7 +127,7 @@ public class Validate {
         return Double.parseDouble(area);
     }
 
-    public String level() {
+    public static String level() {
         List<String> levelList = new ArrayList<>();
         {
             levelList.add("Intermediate");
@@ -146,7 +144,7 @@ public class Validate {
         return level;
     }
 
-    public String position() {
+    public static String position() {
         List<String> positionList = new ArrayList<>();
         {
             positionList.add("Receptionist");
@@ -165,7 +163,7 @@ public class Validate {
         return level;
     }
 
-    public String email() {
+    public static String email() {
         String regex = "^\\w+@\\w+[.]\\w+$";
         while (true) {
             System.out.println("Enter Email  : ");
@@ -178,7 +176,7 @@ public class Validate {
         }
     }
 
-    public String customerType() {
+    public static String customerType() {
         List<String> customerTypeList = new ArrayList<>();
         {
             customerTypeList.add("Diamonds");
@@ -196,7 +194,7 @@ public class Validate {
         return customerType;
     }
 
-    public int checkNumber(String number) {
+    public static int checkNumber(String number) {
         String regex = "^\\d+$";
         while (!number.matches(regex)) {
             System.err.println("Invalid data , please re-enter ");
@@ -205,16 +203,31 @@ public class Validate {
         return Integer.parseInt(number);
     }
 
-    public String checkDay(String day) {
+    public static String checkDay(String day) {
         String regex = "^\\d{2}/\\d{2}/\\d{4}";
         while (!day.matches(regex)) {
             System.err.println("Invalid data, please re-enter by fomrmat in : dd/MM/yyyy ");
-            day=scanner.nextLine();
+            day = scanner.nextLine();
         }
         return day;
     }
 
-
+    public static String checkCodeBooking(String code) {
+        String regex = "^BO-\\d{2}";
+        while (!code.matches(regex)) {
+            System.out.println("Invalid data, please re-enter by fomrmat in : BO-XX\n X is number to 0-9");
+            code = scanner.nextLine();
+        }
+        return code;
+    }
+    public static String checkCodeCustomer(String code) {
+        String regex = "^CU-\\d{2}";
+        while (!code.matches(regex)) {
+            System.out.println("Invalid data, please re-enter by fomrmat in : CU-XX\n X is number to 0-9");
+            code = scanner.nextLine();
+        }
+        return code;
+    }
 }
 
 

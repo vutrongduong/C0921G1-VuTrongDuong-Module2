@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Booking;
 import case_study.models.Contract;
+import case_study.models.facility.Facility;
 import case_study.services.BookingService;
 import case_study.services.ContactService;
 import case_study.utils.FileCSV;
@@ -17,7 +18,6 @@ public class BookingServicelmpl implements BookingService, ContactService {
     static final String pathBooking = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\booking.csv";
     static List<Contract> contractList = new ArrayList<>();
     private Queue<Booking> bookingQueue = new LinkedList<>();
-    Validate validate = new Validate();
     Scanner scanner = new Scanner(System.in);
 
     {
@@ -26,30 +26,28 @@ public class BookingServicelmpl implements BookingService, ContactService {
         bookingQueue.addAll(bookingSet);
     }
 
-
     @Override
     public void display() {
         for (Booking booking : bookingSet) {
-            System.out.print(booking);
+            System.out.println(booking);
         }
     }
 
-
     @Override
     public void add() {
-        System.out.print("Enter code booking");
-        String codeBooking = scanner.nextLine();
-        System.out.print("Enter day start");
-        String dayStart = validate.checkDay(scanner.nextLine());
-        System.out.print("Enter day end");
-        String dayEnd = validate.checkDay(scanner.nextLine());
+        System.out.print("Enter code booking by fomrmat in : BO-XX (X is number to 0-9) ");
+        String codeBooking = Validate.checkCodeBooking(scanner.nextLine());
+        System.out.print("Enter day start ");
+        String dayStart = Validate.checkDay(scanner.nextLine());
+        System.out.print("Enter day end ");
+        String dayEnd = Validate.checkDay(scanner.nextLine());
         customerService.display();
-        System.out.print("Enter code customer");
+        System.out.println("Enter code customer ");
         String codeCustomer = scanner.nextLine();
         facilityService.display();
-        System.out.print("Enter name service");
+        System.out.print("Enter code service ");
         String nameService = scanner.nextLine();
-        System.out.print("Enter type of service");
+        System.out.print("Enter type of service ");
         String typeOfService = scanner.nextLine();
         bookingSet.add(new Booking(codeBooking, dayStart, dayEnd, codeCustomer, nameService, typeOfService));
         FileCSV.writeFileCSV(convertWrite(), pathBooking);
@@ -92,7 +90,7 @@ public class BookingServicelmpl implements BookingService, ContactService {
     @Override
     public void displayContact() {
         for (Contract contract : contractList) {
-            System.out.print(contract);
+            System.out.println(contract);
         }
     }
 
@@ -119,79 +117,84 @@ public class BookingServicelmpl implements BookingService, ContactService {
         }
         String codeBooking = booking.getCodeBooking();
         String codeCustomer = booking.getCodeCustomer();
-        System.out.print("Code booking : " + codeBooking);
-        System.out.print("Code customer : " + codeCustomer);
-        System.out.print("Enter number contact");
-        int numberContract = validate.checkNumber(scanner.nextLine());
+        System.out.println("Code booking : " + codeBooking);
+        System.out.println("Code customer : " + codeCustomer);
+        System.out.print("Enter number contact ");
+        int numberContract = Validate.checkNumber(scanner.nextLine());
         Contract contract = new Contract();
         contract.setNumberContract(numberContract);
         while (contractList.contains(contract)) {
-            System.err.print("Contact does exist");
-            numberContract = validate.checkNumber(scanner.nextLine());
+            System.err.print("Contact does exist ");
+            numberContract = Validate.checkNumber(scanner.nextLine());
             contract.setNumberContract(numberContract);
         }
         System.out.print("Enter deposits ");
-        int deposits = validate.checkNumber(scanner.nextLine());
-        System.out.print("Enter total payment");
-        int totalPayment = validate.checkNumber(scanner.nextLine());
+        int deposits = Validate.checkNumber(scanner.nextLine());
+        Map<Facility, Integer> facilityIntegerMap = facilityService.facilityList();
+        int totalPayment = 0;
+        for (Facility key : facilityIntegerMap.keySet()) {
+            if (key.getCodeService().equals(booking.getNameService())) {
+                System.out.println("Total payment : " + key.getExpense());
+                totalPayment = key.getExpense();
+            }
+        }
         contractList.add(new Contract(numberContract, codeBooking, deposits, totalPayment, codeCustomer));
         FileCSV.writeFileCSV(convertWriteContact(), pathContact);
     }
 
     @Override
     public void editConstracts() {
-        display();
-        System.out.print("Enter number contact want edit");
-        int numberConstract = validate.checkNumber(scanner.nextLine());
+        displayContact();
+        System.out.print("Enter number contact want edit ");
+        int numberConstract = Validate.checkNumber(scanner.nextLine());
         Contract contract = new Contract();
         contract.setNumberContract(numberConstract);
         while (!contractList.contains(contract)) {
-            System.err.print("Contact  does not exist");
-            numberConstract = validate.checkNumber(scanner.nextLine());
+            System.err.print("Contact  does not exist ");
+            numberConstract = Validate.checkNumber(scanner.nextLine());
             contract.setNumberContract(numberConstract);
         }//chỉ cho edit hợp đồng đã tồn tại
         for (Contract contractEdit : contractList) {
             int choice = 0;
             System.out.print(contractEdit);
             while (choice != 6) {
-                System.out.print("===================================");
-                System.out.print("1.\tEdit number contact\n" +
+                System.out.println("1.\tEdit number contact\n" +
                         "2.\tEdit Edit code booking\n" +
                         "3.\tEdit code customer\n" +
                         "4.\tEdit depostis \n" +
                         "5.\tEdit total payment \n" +
                         "6.\tReturn main menu\n");
-                choice = validate.checkNumber(scanner.nextLine());
+                choice = Validate.checkNumber(scanner.nextLine());
                 System.out.print(contractEdit);
                 switch (choice) {
                     case 1:
-                        System.out.print("Enter number contract");
+                        System.out.print("Enter number contract ");
                         contractEdit.setNumberContract(Integer.parseInt(scanner.nextLine()));
                         while (contractList.contains(contractEdit)) {
-                            System.err.print("Contract already exists , re-enter number contract");
+                            System.err.print("Contract already exists , re-enter number contract ");
                             contractEdit.setNumberContract(Integer.parseInt(scanner.nextLine()));
                         }
                         break;
                     case 2:
-                        System.out.print("Enter code booking");
+                        System.out.print("Enter code booking ");
                         contractEdit.setCodeBooking(scanner.nextLine());
                         break;
                     case 3:
-                        System.out.print("Enter code customer");
+                        System.out.print("Enter code customer ");
                         contractEdit.setCodeCustomer(scanner.nextLine());
                         break;
                     case 4:
                         System.out.print("Enter deposits ");
-                        contractEdit.setDeposits(validate.checkNumber(scanner.nextLine()));
+                        contractEdit.setDeposits(Validate.checkNumber(scanner.nextLine()));
                         break;
                     case 5:
-                        System.out.print("Enter total payment");
-                        contractEdit.setTotalPayment(validate.checkNumber(scanner.nextLine()));
+                        System.out.print("Enter total payment ");
+                        contractEdit.setTotalPayment(Validate.checkNumber(scanner.nextLine()));
                         break;
                     case 6:
                         break;
                     default:
-                        System.out.print("Enter number 1 to 6, re-enter");
+                        System.out.print("Enter number 1 to 6, re-enter ");
                 }
             }
         }

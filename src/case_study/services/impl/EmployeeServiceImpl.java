@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements EmployeeService {
     static final String path = "D:\\codegym\\C0921G1-VuTrongDuong-Module2\\src\\case_study\\data\\employee.csv";
     public List<Employee> employeeList = new ArrayList<>();
-    Validate validate = new Validate();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -24,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void display() {
         for (Employee ele : employeeList) {
-            System.out.print(ele);
+            System.out.println(ele);
         }
     }
 
@@ -43,18 +42,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.print("Enter name ");
         String name = scanner.nextLine();
         System.out.print("Enter birth date ");
-        String birthDate = validate.checkDay(scanner.nextLine());
+        String birthDate = Validate.checkDay(scanner.nextLine());
         System.out.print("Enter gender ");
         String gender = scanner.nextLine();
         System.out.print("Enter idNumber ");
-        int idNumber = validate.checkNumber(scanner.nextLine());
+        int idNumber = Validate.checkNumber(scanner.nextLine());
         System.out.print("Enter phone ");
         String phone = scanner.nextLine();
-        String email = validate.email();
-        String level = validate.level();
-        String position = validate.position();
+        String email = Validate.email();
+        String level = Validate.level();
+        String position = Validate.position();
         System.out.print("Enter salary ");
-        int salary = validate.checkNumber(scanner.nextLine());
+        int salary = Validate.checkNumber(scanner.nextLine());
         new Employee(code, birthDate, name, gender, idNumber, phone, email, level, position, salary);
         employeeList.add(new Employee(code, birthDate, name, gender, idNumber, phone, email, level, position, salary));
         FileCSV.writeFileCSV(convertWrite(), path);
@@ -90,7 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                             "9.\tEdit position\n" +
                             "10.\tEdit salary\n" +
                             "11.\tReturn main menu\n");
-                    choice = validate.checkNumber(scanner.nextLine());
+                    choice = Validate.checkNumber(scanner.nextLine());
                     switch (choice) {
                         case 1:
                             System.out.print("Enter code employee");
@@ -124,11 +123,11 @@ public class EmployeeServiceImpl implements EmployeeService {
                             break;
                         case 7:
                             System.out.print("Enter email");
-                            employeeEdit.setEmail(validate.email());
+                            employeeEdit.setEmail(Validate.email());
                             break;
                         case 8:
                             System.out.print("Enter level");
-                            employeeEdit.setLevel(validate.customerType());
+                            employeeEdit.setLevel(Validate.customerType());
                             break;
                         case 9:
                             System.out.print("Enter position");

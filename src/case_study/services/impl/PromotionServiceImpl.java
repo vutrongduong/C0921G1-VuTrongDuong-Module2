@@ -1,6 +1,4 @@
 package case_study.services.impl;
-
-
 import case_study.models.Booking;
 import case_study.models.Customer;
 import case_study.validate.Validate;
@@ -11,7 +9,6 @@ import java.util.Stack;
 
 public class PromotionServiceImpl {
     Scanner scanner = new Scanner(System.in);
-    Validate validate =new Validate();
     BookingServicelmpl bookingServicelmpl = new BookingServicelmpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     List<Customer> customerList = customerService.convertRead();
@@ -30,14 +27,18 @@ public class PromotionServiceImpl {
     }
 
     public void getVoucher() {
+
         Stack<Booking> bookingStack = new Stack<>();
         bookingStack.addAll(bookingServicelmpl.getBookingMonth());
+        for (Booking b : bookingStack) {
+            System.out.println(b);
+        }
         System.out.println("Enter the number of voucher 10%");
-        int voucher10 = validate.checkNumber(scanner.nextLine());
+        int voucher10 = Validate.checkNumber(scanner.nextLine());
         System.out.println("Enter the number of voucher 20%");
-        int voucher20 =validate.checkNumber(scanner.nextLine());
+        int voucher20 = Validate.checkNumber(scanner.nextLine());
         System.out.println("Enter the number of voucher 50%");
-        int voucher50 = validate.checkNumber(scanner.nextLine());
+        int voucher50 = Validate.checkNumber(scanner.nextLine());
         for (int i = 0; i < voucher10; i++) {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
@@ -66,10 +67,5 @@ public class PromotionServiceImpl {
             }
         }
     }
-
-//    public static void main(String[] args) {
-//        PromotionServiceImpl promotionService = new PromotionServiceImpl();
-//        promotionService.getVoucher();
-//    }
 }
 

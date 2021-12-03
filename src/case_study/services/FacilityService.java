@@ -8,7 +8,7 @@ import java.util.List;
 public interface FacilityService extends Service {
     void displayFacilityMaintenance();
 
-    List<String> convertWrite();
+    List<String> convertWriteFalicity(Facility facility);
 
     LinkedHashMap<Facility, Integer> convertRead();
 }
