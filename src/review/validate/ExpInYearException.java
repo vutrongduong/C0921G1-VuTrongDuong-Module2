@@ -6,4 +6,9 @@ public class ExpInYearException extends InputMismatchException {
     public ExpInYearException() {
         super("Invalid data , please re-enter is number from 0 to 100");
     }
+
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
 }

@@ -77,38 +77,46 @@ public class TaiKhoanNganHangServiceimpl implements TaiKhoanNganHangService {
                     }
                 }
                 if (index != -1) {
-                    taiKhoanNganHangSet.remove(index);
-                    display();
-                    FileCSV.writeFileCSV(convertWrite(), pathTaiKhoanNganHang);
-                    System.out.println("Nhấn Enter để quay lại menu chính");
-                    String nhap = scanner.nextLine();
-                    if (nhap.equals("")) {
-                        break;
+                    System.out.println("1.Yes\n2.No");
+                    int choice = Integer.parseInt(scanner.nextLine());
+                    switch (choice) {
+                        case 1:
+                            taiKhoanNganHangSet.remove(index);
+                            display();
+                            FileCSV.writeFileCSV(convertWrite(), pathTaiKhoanNganHang);
+                            System.out.println("Nhấn Enter để quay lại menu chính");
+                            String nhap = scanner.nextLine();
+                            if (nhap.equals("")) {
+                                break;
+                            }
+                        case 2:
+                            break;
                     }
+                    break;
                 } else {
                     throw new NotFoundBankAccountException();
                 }
             } catch (NotFoundBankAccountException e) {
-                e.getMessage();
+               e.getMessage();
             }
         }
     }
 
-
     @Override
     public void display() {
+
         for (TaiKhoanNganHang ele : taiKhoanNganHangSet) {
-//            if (ele instanceof TaiKhoanThanhToan) {
-////              System.out.printf("|%3s | %-10s |%-5s |%-10s|%-5s |%-10s","STT", "Id", "Tên","ngày tạo tài khoản","số thẻ","số tiền trong tài khoản");
-//                System.out.printf("|%3i |%-10s |%-5s |%-10s |%-5s |%-10s |%n", ele.getId() + ele.getMaTaiKhoan() + ele.getTen() + ele.getNgayTao() + ((TaiKhoanThanhToan) ele).getSoThe() + ((TaiKhoanThanhToan) ele).getSoTienTrongTaiKhoan());
-//                System.out.println(ele);
-//            } else if (ele instanceof TaiKhoanTietKiem) {
-//
-//            }
-//        }
-////        System.out.printf("|%3s | %-10s |%-5s |%n","STT", "Id", "Tên","");
-            System.out.println(ele);
+            if (ele instanceof TaiKhoanThanhToan) {
+//              System.out.printf("|%3s | %-10s |%-5s |%-10s|%-5s |%-10s","STT", "Id", "Tên","ngày tạo tài khoản","số thẻ","số tiền trong tài khoản");
+                System.out.printf("|%3i |%-10s |%-5s |%-10s |%-5s |%-10s |%n", ele.getId() + ele.getMaTaiKhoan() + ele.getTen() + ele.getNgayTao() + ((TaiKhoanThanhToan) ele).getSoThe() + ((TaiKhoanThanhToan) ele).getSoTienTrongTaiKhoan());
+                System.out.println(ele);
+            } else if (ele instanceof TaiKhoanTietKiem) {
+                System.out.printf("");
+            }
         }
+//        System.out.printf("|%3s | %-10s |%-5s |%n","STT", "Id", "Tên","");
+//            System.out.println(ele);
+//        }
     }
 
     @Override

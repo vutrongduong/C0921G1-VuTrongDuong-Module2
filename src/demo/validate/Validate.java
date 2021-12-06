@@ -13,4 +13,7 @@ public class Validate {
         }
         return Long.parseLong(so);
     }
+//    public static void checkDate(String date){
+//        String regex ="^"
+//    }
 }
