@@ -1,4 +1,5 @@
 package case_study.services.impl;
+
 import case_study.models.Booking;
 import case_study.models.Customer;
 import case_study.validate.Validate;
@@ -42,6 +43,7 @@ public class PromotionServiceImpl {
         for (int i = 0; i < voucher10; i++) {
             if (!bookingStack.isEmpty()) {
                 customer.setCode(bookingStack.pop().getCodeCustomer());
+                System.out.println(customer);
                 int index = customerList.indexOf(customer);
                 if (index != -1) {
                     System.out.println(customerList.get(index) + " : voucher 10%");
@@ -66,6 +68,11 @@ public class PromotionServiceImpl {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
+        promotionService.getVoucher();
     }
 }
 

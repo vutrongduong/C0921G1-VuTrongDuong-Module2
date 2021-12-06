@@ -3,10 +3,10 @@ package demo.models;
 import demo.models.TaiKhoanNganHang;
 
 public class TaiKhoanTietKiem extends TaiKhoanNganHang {
-    long tienGui;
-    String ngayGui;
-    int laiXuat;
-    int kiHan;
+    private  long tienGui;
+    private String ngayGui;
+    private int laiXuat;
+    private int kiHan;
 
     public TaiKhoanTietKiem() {
     }
@@ -18,7 +18,7 @@ public class TaiKhoanTietKiem extends TaiKhoanNganHang {
         this.kiHan = kiHan;
     }
 
-    public TaiKhoanTietKiem(int id, long maTaiKhoan, String ten, String ngayTao, long tienGui, String ngayGui, int laiXuat, int kiHan) {
+    public TaiKhoanTietKiem(int id, String maTaiKhoan, String ten, String ngayTao, long tienGui, String ngayGui, int laiXuat, int kiHan) {
         super(id, maTaiKhoan, ten, ngayTao);
         this.tienGui = tienGui;
         this.ngayGui = ngayGui;
@@ -60,6 +60,6 @@ public class TaiKhoanTietKiem extends TaiKhoanNganHang {
 
     @Override
     public String toString() {
-        return id + "," + maTaiKhoan + "," + ten + ",'" + ngayTao + "," + tienGui + ",'" + ngayGui + "," + laiXuat + "," + kiHan;
+        return getId() + "," + getMaTaiKhoan() + "," + getTen() + "," + getNgayTao() + "," + tienGui + "," + ngayGui + "," + laiXuat + "," + kiHan;
     }
 }

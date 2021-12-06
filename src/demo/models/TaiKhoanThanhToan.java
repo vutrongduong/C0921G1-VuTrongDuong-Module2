@@ -3,33 +3,44 @@ package demo.models;
 import demo.models.TaiKhoanNganHang;
 
 public class TaiKhoanThanhToan extends TaiKhoanNganHang {
-    long soThe;
-    long soTienTrongTaiKhoan;
+    private String soThe;
+    private long soTienTrongTaiKhoan;
 
     public TaiKhoanThanhToan() {
     }
 
-    public TaiKhoanThanhToan(long soThe, long soTienTrongTaiKhoan) {
+    public TaiKhoanThanhToan(String soThe, long soTienTrongTaiKhoan) {
         this.soThe = soThe;
         this.soTienTrongTaiKhoan = soTienTrongTaiKhoan;
     }
 
-    public TaiKhoanThanhToan(int id, long maTaiKhoan, String ten, String ngayTao, long soThe, long soTienTrongTaiKhoan) {
+    public TaiKhoanThanhToan(int id, String maTaiKhoan, String ten, String ngayTao, String soThe, long soTienTrongTaiKhoan) {
         super(id, maTaiKhoan, ten, ngayTao);
         this.soThe = soThe;
         this.soTienTrongTaiKhoan = soTienTrongTaiKhoan;
     }
 
-    public long getSoThe() {
+    public String getSoThe() {
         return soThe;
     }
 
-    public void setSoThe(long soThe) {
+    public void setSoThe(String soThe) {
         this.soThe = soThe;
+    }
+
+    public long getSoTienTrongTaiKhoan() {
+        return soTienTrongTaiKhoan;
+    }
+
+    public void setSoTienTrongTaiKhoan(long soTienTrongTaiKhoan) {
+        this.soTienTrongTaiKhoan = soTienTrongTaiKhoan;
     }
 
     @Override
     public String toString() {
-        return id + "," + maTaiKhoan + "," + ten + "," + ngayTao + ',' + soThe + "," + soTienTrongTaiKhoan;
+        return getId() + "," + getMaTaiKhoan() + "," + getTen() + "," + getNgayTao() + "," + soThe + "," + soTienTrongTaiKhoan;
+
     }
+
+
 }

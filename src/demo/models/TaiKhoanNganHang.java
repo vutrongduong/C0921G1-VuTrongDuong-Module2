@@ -1,15 +1,15 @@
 package demo.models;
 
 public abstract class TaiKhoanNganHang {
-    int id;
-    long maTaiKhoan;
-    String ten;
-    String ngayTao;
+    private int id;
+    private String maTaiKhoan;
+    private String ten;
+    private String ngayTao;
 
     public TaiKhoanNganHang() {
     }
 
-    public TaiKhoanNganHang(int id, long maTaiKhoan, String ten, String ngayTao) {
+    public TaiKhoanNganHang(int id, String maTaiKhoan, String ten, String ngayTao) {
         this.id = id;
         this.maTaiKhoan = maTaiKhoan;
         this.ten = ten;
@@ -24,11 +24,11 @@ public abstract class TaiKhoanNganHang {
         this.id = id;
     }
 
-    public long getMaTaiKhoan() {
+    public String getMaTaiKhoan() {
         return maTaiKhoan;
     }
 
-    public void setMaTaiKhoan(long maTaiKhoan) {
+    public void setMaTaiKhoan(String maTaiKhoan) {
         this.maTaiKhoan = maTaiKhoan;
     }
 
